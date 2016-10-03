@@ -1,0 +1,26 @@
+//
+//  @Author: Sunil bn <sunhick@gmail.com>
+//
+//  Copyright (c) 2016. University of Colorado, boulder
+//
+// extends layout
+.container(ng-controller="loginController as loginCtrl")
+  .row
+    .col-md-4.col-sm-6.col-xs-6
+      h1 Login with Email Id
+      form#login-form(role='form', ng-model="login" method='post', autocomplete='off')
+        .form-group
+          label.sr-only(for='email') Email
+          input#email.form-control(type='email', ng-model="login.email", name='email', placeholder='somebody@example.com')
+        .form-group
+          label.sr-only(for='key') Password
+          input#key.form-control(type='password',ng-model="login.pword" name='key', placeholder='Password')
+        .checkbox
+          span.character-checkbox(onclick='showPassword()')
+          span.label Show password
+        input#btn-login.btn.btn-primary.btn-lg.btn-block(type='submit', value='Log in', ng-click="loginCtrl.Submit(login)")
+      a.forget(href='javascript:;', data-toggle='modal', data-target='.forget-modal') Forgot your password?
+
+
+script(type="text/javascript", src='/controllers/loginController.js')
+script(type='text/javascript', src='/controllers/loginController.js')

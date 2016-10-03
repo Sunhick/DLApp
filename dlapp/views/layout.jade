@@ -16,7 +16,13 @@ html
     script(type='text/javascript', src='/bower_components/angular/angular.min.js')
     script(type='text/javascript', src='/bower_components/angular-route/angular-route.min.js')
     script(type='text/javascript', src='/controllers/dlapp.js')
+    script(type='text/javascript', src='/controllers/appRoutes.js')
     script(type='text/javascript', src='/controllers/mainController.js')
+    script(type='text/javascript', src='/controllers/loginController.js')
+    script(type='text/javascript', src='/controllers/studentController.js')
+    script(type='text/javascript', src='/controllers/facultyController.js')
+
+    base(href='/')
 
     // add additional headers if required
     block addHeaders
@@ -42,11 +48,11 @@ html
             // Collect the nav links, forms, and other content for toggling
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               ul.nav.navbar-nav.navbar-right
-                li
+                li(ng-class="active")
                   a(href="login") 
                         span.glyphicon.glyphicon-log-in
                         |  Login
-    block content
+    div(ng-view)
     .footer.navbar-fixed-bottom
         .container.text-center
             p.text-muted.credit
