@@ -6,7 +6,4 @@
 */
 angular.module('studentController', []).controller('studentController', function($http){
     var self = this;
-    self.Submit = function(login) {   
-        console.log("submit clicked " + login.email + login.pword);
-    };
 });

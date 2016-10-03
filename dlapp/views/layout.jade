@@ -40,7 +40,7 @@ html
             a.navbar-brand(href='/') DL-App
 
            #bs-example-navbar-collapse-1.collapse.navbar-collapse
-            ul.nav.navbar-nav(ng-controller = "mainController as mainCtrl")
+            ul.nav.navbar-nav.navbar-left(ng-controller = "mainController as mainCtrl")
                       li(ng-repeat="headerMenu in mainCtrl.headerMenus" ng-class="{active : mainCtrl.activeMenu == headerMenu.name}")
                         a(ng-href="{{ headerMenu.link }}" ng-click="mainCtrl.activate($index)")
                           span(ng-class="'{{headerMenu.glyphicon}}'")
