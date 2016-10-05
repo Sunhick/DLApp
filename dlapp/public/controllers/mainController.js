@@ -8,7 +8,6 @@ angular.module('mainController', []).controller('mainController', function(){
     var self = this;
     self.activeMenu = "Home";
     self.headerMenus = [
-        { name: "Home", link: "/home", glyphicon: "glyphicon glyphicon-home" },
         { name: "Students", link: "/students" },
         { name: "Faculty", link:"/faculty" },
         { name: "Projects", link:"/projects" },
