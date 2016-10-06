@@ -33,25 +33,25 @@
                         <label for="lastName">*Last Name:</label>
                         <input type="text" class="form-control" id="lastName">
                   </div>
-                  
+
                   <div class="col-md-1">
                     <label for="gender">*Gender:</label>
                   </div>
                   <div class="radio ">
-                      
+
                         <label class="radio-inline"><input type="radio" name="gender">Male</label>
                         <label class="radio-inline"><input type="radio" name="gender">Female</label>
                   </div>
-                  
+
                   <div class="panel-body col-md-12">
                     <label for="origin">Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central American, or Spanish Origin?</label>
                   </div>
-                  <div class="panel-body">                    
+                  <div class="panel-body">
                         <label class="radio-inline"><input type="radio" name="origin">Yes</label>
                         <label class="radio-inline"><input type="radio" name="origin">No</label>
                         <label class="radio-inline"><input type="radio" name="origin">I do not wish to provide this information</label>
                   </div>
-                  
+
                   <div class="panel-body col-md-12">
                     <label for="origin">Please check your race (select all that apply):</label>
                   </div>
@@ -78,7 +78,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="origin" value="">Do Not Wish to Provide</label>
                   </div>
 
-            
+
               <div class="panel-heading">Boulder Contact Information</div>
               <div class="panel-body">
                     <div class="panel-body col-md-6">
@@ -736,10 +736,146 @@
                           <input type="text" class="form-control" id="sid">
                     </div>
                     <div class="panel-body col-md-12">
-                      <label for="research_exp">Do you have previous research experience?</label>            
+                      <label for="research_exp">Do you have previous research experience?</label>
                       <label class="radio-inline"><input type="radio" name="research_exp">Yes</label>
                       <label class="radio-inline"><input type="radio" name="research_exp">No (This will not affect your eligibility!)</label>
                   </div>
+              </div>
+
+            <div class="panel-heading">Apprenticeship Information</div>
+              <div class="panel-body">
+                    <div class="col-md-12">
+                        <label for="applied_before">Have you applied for Discovery Learning Apprenticeship before?</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <label class="radio-inline"><input type="radio" name="applied_before">Yes</label>
+                          <label class="radio-inline"><input type="radio" name="applied_before">Not sure</label>
+                          <label class="radio-inline"><input type="radio" name="applied_before">No</label>
+                    </div>
+
+                    <div class="panel-body col-md-6">
+                      <label for="otherFallEmployment">Other fall employment planned:</label>
+                      <input type="text" class="form-control" id="otherFallEmployment">
+                    </div>
+
+                    <div class="panel-body col-md-12">
+                      <label for="note"> Please make sure you selected a major before proceeding! Indicate up to five research projects in order of interest. Please note that some projects have special requirements that you must meet. To see requirements and longer descriptions of the project, look at the projects available for your major here. </label>
+                      <label for="projectInterest"> 1 is most interested, 5 is moderately interested. For full listing of projects, look <a href="http://localhost:4000/projects" >here</a>. </label>
+                    </div>
+
+                    <div class="panel-body col-md-2">
+                        <label for="firstChoice">*First Preference</label>
+                    </div>
+                    <div class="panel-body col-md-10">
+                        <select class="form-control col-md-3" id="listProjects" name="listProjects">
+                          <option value="selectProject">Please select project</option>
+                        </select>
+                    </div>
+
+                    <div class="panel-body col-md-2">
+                        <label for="secondChoice">Second Preference</label>
+                    </div>
+                    <div class="panel-body col-md-10">
+                        <select class="form-control col-md-3" id="listProjects" name="listProjects">
+                          <option value="selectProject">Please select project</option>
+                        </select>
+                    </div>
+
+                    <div class="panel-body col-md-2">
+                        <label for="thirdChoice">Third Preference</label>
+                    </div>
+                    <div class="panel-body col-md-10">
+                        <select class="form-control col-md-3" id="listProjects" name="listProjects">
+                          <option value="selectProject">Please select project</option>
+                        </select>
+                    </div>
+
+                    <div class="panel-body col-md-2">
+                        <label for="fourthChoice">Fourth Preference</label>
+                    </div>
+                    <div class="panel-body col-md-10">
+                        <select class="form-control col-md-3" id="listProjects" name="listProjects">
+                          <option value="selectProject">Please select project</option>
+                        </select>
+                    </div>
+
+                    <div class="panel-body col-md-2">
+                        <label for="fifthChoice">Fifth Preference</label>
+                    </div>
+                    <div class="panel-body col-md-10">
+                        <select class="form-control col-md-3" id="listProjects" name="listProjects">
+                          <option value="selectProject">Please select project</option>
+                        </select>
+                    </div>
+
+                    <div class="row">
+                    <div class="panel-body col-md-4">
+                        <label for="backgroundCheck">Have you had a background check yet (at CU)? If yes when? (Take your best guess if you aren't sure.)</label>
+                    </div>
+                    <div class="panel-body col-md-8">
+                      <label class="radio-inline"><input type="radio" name="backgroundCheck">Yes</label>
+                      <label class="radio-inline"><input type="radio" name="backgroundCheck">Not sure</label>
+                      <label class="radio-inline"><input type="radio" name="backgroundCheck">No</label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="panel-body col-md-4">
+                      <label for="awarenessTraining">Have you had Discrimination and Harassment Awareness training yet (at CU)? If yes when? (Take your best guess if you aren't sure.)</label>
+                    </div>
+                    <div class="panel-body col-md-8">
+                          <label class="radio-inline"><input type="radio" name="awarenessTraining">Yes</label>
+                          <label class="radio-inline"><input type="radio" name="awarenessTraining">Not sure</label>
+                          <label class="radio-inline"><input type="radio" name="awarenessTraining">No</label>
+                    </div>
+                  </div>
+
+                  <div class="panel-body col-md-4">
+                    <label for="ssnInfo">Last four digits of your Social Security Number: (this will only be used to acess your background check information)</label>
+                  </div>
+                  <div class="panel-body col-md-8">
+                    <input type="password" class="form-control-inline" id="ssnInfo" maxlength="4">
+                  </div>
+
+            </div>
+
+            <div class="panel-heading">Skills, Resume, and Cover Letter</div>
+              <div class="panel-body">
+                <div class="panel-body col-md-12">
+                  <label for="note">Please list the three skills or qualifications that you feel make you a great candidate for the positions you selected. (Could be knowledge of a programming language, knowledge of a field, courses taken, personal characteristics, etc. If appropriate, note your match to requirements in job description. Please note responses are limited to 75 characters.) </label>
+                </div>
+
+                <div class="row">
+                  <label for="firstSkill" class="col-md-1">&nbsp;&nbsp;&nbsp;&nbsp;1.</label>
+                  <input type="text" class="form-control-inline col-md-7"  id="firstSkill" maxlength="75" placeholder="maximun length of 75 characters">
+                </div>
+                <br/>
+
+                <div class="row">
+                  <label for="secondSkill" class="col-md-1">&nbsp;&nbsp;&nbsp;&nbsp;2.</label>
+                  <input type="text" class="form-control-inline col-md-7"  id="secondSkill" maxlength="75" placeholder="maximun length of 75 characters">
+                </div>
+                <br/>
+
+                <div class="row">
+                  <label for="thirdSkill" class="col-md-1">&nbsp;&nbsp;&nbsp;&nbsp;3.</label>
+                  <input type="text" class="form-control-inline col-md-7"  id="thirdSkill" maxlength="75" placeholder="maximun length of 75 characters">
+                </div>
+                <br/>
+
+                <div class="panel-body col-md-12">
+                  <label for="note">To complete the application, you must submit a resume and a cover letter. You can submit both using the form below. Please use either the pdf format or a text document. To improve your chances of being selected for an apprenticeship, please take the time to construct a well-written cover letter and resume. </label>
+                  <label for="note"><a href="http://engineering.colorado.edu/surveys/dla/Writing%20Tips%20for%20Cover%20Letters%20and%20Resumes.doc">Click here</a> for some tips, which we highly recommend you review before submitting your cover letter and resume. </label>
+                </div>
+
+                <div class="row">
+                  <label for="resume" class="col-md-2">&nbsp;&nbsp;&nbsp;&nbsp;Resume</label>
+                  <input type="file" name="resume" class="col-md-4">
+                </div>
+
+                <div class="row">
+                  <label for="coverLetter" class="col-md-2">&nbsp;&nbsp;&nbsp;&nbsp;Cover Letter</label>
+                  <input type="file" name="coverLetter" class="col-md-4">
+                </div>
+
               </div>
             </div>
             <div class="col-md-3"><a href="#" class="btn btn-primary">Submit Application</a></div>
