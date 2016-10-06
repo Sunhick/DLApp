@@ -1,6 +1,6 @@
 /**
 *  @Author: Sunil bn <sunhick@gmail.com>
-*  @Desc: main controller 
+*  @Desc: project controller 
 *
 *  Copyright (c) 2016. University of Colorado, boulder
 */

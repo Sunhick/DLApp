@@ -1,3 +1,9 @@
+/**
+*  @Author: Sunil bn <sunhick@gmail.com>
+*  @Desc: server file
+*
+*  Copyright (c) 2016. University of Colorado, boulder
+*/
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -15,10 +21,6 @@ app.engine('html', require('ejs').renderFile);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 
-//app.set('views', path.join(__dirname, 'views/'));
-//app.set('view engine', require('ejs').renderFile);
-//app.set('view engine', 'pug');
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -30,14 +32,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 routes(app);
 users(app);
 projects(app);
-
-// app.use('/', routes);
-// app.use('/projects', projects);
-// app.use('/home', routes);
-// app.use('/students', routes);
-// app.use('/faculty', routes);
-// app.use('/login', routes);
-// app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
