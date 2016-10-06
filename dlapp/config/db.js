@@ -6,7 +6,7 @@
 */
 module.exports = {
     mongo : {
-        uri : 'localhost',
-        port: 27001
+        uri : 'mongodb://localhost:27017/dlapp',
+        port: 27017
     }
 };

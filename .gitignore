@@ -75,3 +75,7 @@ mongod
 *.ntvs*
 *.njsproj
 *.sln
+
+# No DB data
+# ===========
+db/

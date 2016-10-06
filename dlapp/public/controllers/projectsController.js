@@ -4,13 +4,21 @@
 *
 *  Copyright (c) 2016. University of Colorado, boulder
 */
-angular.module('dlapp').controller('projectsController', function(){
+angular.module('dlapp').controller('projectsController', function($http){
     var self = this;
-    self.activeMenu = "Home";
-    self.headerMenus = [
-        { name: "Students", link: "/students" },
-        { name: "Faculty", link:"/faculty" },
-        { name: "Projects", link:"/projects" },
-        { name: "Contact Us", link:"/" }
+    self.projects = [
+        { name : "project-22" },
+        { name : "Level it" }
     ];
+
+    self.submitProject = function(project) {
+        // create the data
+        var data = { name: project.name };
+
+        // post the data
+        return $http.post("/projects/add", data)
+            .then(function(response) {
+                self.projects.push(data);
+            });
+    }
 });

@@ -1,12 +1,21 @@
 <div class="container">
   <div class="well">
-    <h3>Faculty project request form</h3>
+    <h4>List of Projects</h4>
   </div>
 
-  <ul ng-controller="projectsController as p">
-    {{p.activeMenu}}
-    <li ng-repeat="each in p.headerMenus">
-        {{each.name}}
-    </li>
-  </ul>
+  <div ng-controller="projectsController as prjCtrl">
+    <div class="col-md-6">
+          <label for="name">Project Name:</label>
+          <input type="text" name="name" ng-model="project.name"><br><br>
+          <input type="submit" value="Submit" ng-click="prjCtrl.submitProject(project)">
+        </form>
+    </div>
+
+    <ul>
+      {{p.activeMenu}}
+      <li ng-repeat="each in prjCtrl.projects">
+          {{each.name}}
+      </li>
+    </ul>
+  </div>
 </div>
