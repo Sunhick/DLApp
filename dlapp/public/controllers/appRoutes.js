@@ -4,7 +4,7 @@
 *
 *  Copyright (c) 2016. University of Colorado, boulder
 */
-angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', 
+angular.module('dlapp').config(['$routeProvider', '$locationProvider', 
     function($routeProvider, $locationProvider) {
                 $routeProvider
                 
@@ -18,6 +18,12 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider',
                 .when('/login', {
                     templateUrl: 'partials/login',
                     controller: 'loginController'
+                })
+
+                // login page
+                .when('/projects', {
+                    templateUrl: 'partials/projects',
+                    controller: 'projectsController'
                 })
 
                 .when('/students',{

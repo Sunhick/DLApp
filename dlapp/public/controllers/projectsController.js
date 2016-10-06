@@ -4,7 +4,7 @@
 *
 *  Copyright (c) 2016. University of Colorado, boulder
 */
-angular.module('dlapp').controller('mainController', function(){
+angular.module('dlapp').controller('projectsController', function(){
     var self = this;
     self.activeMenu = "Home";
     self.headerMenus = [
@@ -13,8 +13,4 @@ angular.module('dlapp').controller('mainController', function(){
         { name: "Projects", link:"/projects" },
         { name: "Contact Us", link:"/" }
     ];
-
-    self.activate = function(selectedIndex) {
-        self.activeMenu = self.headerMenus[selectedIndex].name;
-    };
 });

@@ -4,6 +4,6 @@
 *
 *  Copyright (c) 2016. University of Colorado, boulder
 */
-angular.module('studentController', []).controller('studentController', function($http){
+angular.module('dlapp').controller('studentController', function($http){
     var self = this;
 });

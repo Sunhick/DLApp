@@ -20,6 +20,10 @@ router.get('/partials/login', function(req, res, next) {
     res.render('partials/login');
 });
 
+router.get('/partials/projects', function(req, res, next) {
+    res.render('partials/projects');
+});
+
 router.get('/partials/faculty', function(req, res, next) {
     res.render('partials/faculty');
 });

@@ -4,7 +4,7 @@
 *
 *  Copyright (c) 2016. University of Colorado, boulder
 */
-angular.module('loginController', []).controller('loginController', function($http){
+angular.module('dlapp').controller('loginController', function($http){
     var self = this;
     self.Submit = function(login) {   
         console.log("submit clicked " + login.email + login.pword);

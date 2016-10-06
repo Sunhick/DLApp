@@ -10,11 +10,7 @@ var users = require('./routes/users');
 
 var app = express();
 
-// view engine setup
-var cons = require('consolidate');
-
-// view engine setup
-app.engine('html', cons.swig)
+app.engine('html', require('ejs').renderFile);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 
@@ -31,6 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/projects', routes)
 app.use('/home', routes);
 app.use('/students', routes);
 app.use('/faculty', routes);
