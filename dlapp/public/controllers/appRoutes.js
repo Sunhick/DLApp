@@ -11,7 +11,7 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider',
                 // home page
                 .when('/', {
                     templateUrl: 'home',
-                    controller: 'mainController'
+                    //controller: 'mainController'
                 })
 
                 // login page
