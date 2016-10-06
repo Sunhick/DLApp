@@ -28,5 +28,9 @@ module.exports = function(router) {
         res.render('students');
     });
 
+    router.get('/partials/contactus', function(req, res, next) {
+        res.render('partials/contactus')
+    });
+
     // module.exports = router;
 }

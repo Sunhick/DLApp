@@ -11,7 +11,7 @@ angular.module('dlapp').controller('mainController', function(){
         { name: "Students", link: "/students" },
         { name: "Faculty", link:"/faculty" },
         { name: "Projects", link:"/projects" },
-        { name: "Contact Us", link:"/" }
+        { name: "Contact Us", link:"/contactus" }
     ];
 
     self.activate = function(selectedIndex) {
