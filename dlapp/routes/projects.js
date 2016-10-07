@@ -7,20 +7,14 @@
 
 var mongoose = require('mongoose');
 var Project = require('../models/projects')
-var dbConfig = require('../config/db')
-
-mongoose.connect(dbConfig.mongo.uri);
 
 module.exports = function(router) {
     // add project 
     router.post('/projects/add', function(req, res, next) {
         console.log('got request!' + req.body.name);
         
-        var prj = new Project({
-            name : req.body.name
-        });
-
-        prj.save(function(err) {
+        var project = new Project(req.body);
+        project.save(function(err) {
             if(err) {
                 console.log(err);
             } else {

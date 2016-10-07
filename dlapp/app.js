@@ -16,6 +16,11 @@ var projects = require('./routes/projects');
 var students = require('./routes/students');
 var users = require('./routes/users');
 
+// connect to mongoose should be done only once.
+var mongoose = require('mongoose');
+var dbConfig = require('./config/db');
+mongoose.connect(dbConfig.mongo.uri);
+
 var app = express();
 
 app.engine('html', require('ejs').renderFile);

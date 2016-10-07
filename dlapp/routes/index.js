@@ -4,6 +4,9 @@
 *
 *  Copyright (c) 2016. University of Colorado, boulder
 */
+var mongoose = require('mongoose');
+var Users = require('../models/users')
+var dbConfig = require('../config/db');
 
 module.exports = function(router) {
 
@@ -22,7 +25,15 @@ module.exports = function(router) {
 
     router.post('/login/register', function(req, res, next) {
         var data = req.body;
-        console.log("register clicked " + data.username + data.email + data.password);
+        console.log("got register call " + data.username + data.email + data.password);
+
+        var user = Users(data);
+        user.save(function(err) {
+            if(err) {
+                console.log(err);
+            } else {
+                console.log("user registered!");
+        }});
     });
 
     router.get('/partials/faculty', function(req, res, next) {
