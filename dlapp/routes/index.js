@@ -33,5 +33,9 @@ module.exports = function(router) {
         res.render('partials/contactus')
     });
 
+    router.get('/students', function(req, res, next) {
+        res.render('students');
+    });
+
     // module.exports = router;
 }

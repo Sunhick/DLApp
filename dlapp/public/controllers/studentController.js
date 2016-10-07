@@ -4,14 +4,17 @@
 *
 *  Copyright (c) 2016. University of Colorado, boulder
 */
-angular.module('dlapp').controller('studentController', function($http){
-    var self = this;
-    self.data = {};
+	angular.module('dlapp').controller('studentController',['$scope','$resource',function($scope,$resource){
 
-    var Register = $resource('/students/register');
-    
-    self.submit = function(data) {
-        console.log(data);
-        $http.post('/students/register', data);
-    }
-});
+    var Student = $resource('/student/add');
+
+    $scope.addStudent = function(data) {
+
+    	var student = new Student(data);
+
+		 student.$save(function(result){
+		 	console.log('Student added..');
+		 });
+    };
+
+}]);

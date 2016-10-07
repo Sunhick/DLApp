@@ -1,20 +1,24 @@
 /**
-*  @Author: Sunil bn <sunhick@gmail.com>
-*  @Desc: routes
+*  @Author: Pallavi Madasu(pama1314@colorado.edu)
+*  @Desc: student controller 
 *
 *  Copyright (c) 2016. University of Colorado, boulder
 */
 
+var dbConfig = require('../config/db')
+var mongoose = require('mongoose');
+var Student = require('../models/students');
+
+mongoose.createConnection(dbConfig.mongo.uri);
+
 module.exports = function(router) {
 
-    router.get('/students', function(req, res, next) {
-        res.render('students');
-    });
+	router.post('/student/add', function(req,res){
 
-    router.post('/students/register', function(req, res, next) {
-        var data = req.body;
-        console.log('Got the data' + data.firstName + data.lastName);
-    });
+    	var studentModel = new Student(req.body);
 
-    // module.exports = router;
+    	studentModel.save(function(err, result){
+    			res.json(result);
+   		 });
+	});
 }

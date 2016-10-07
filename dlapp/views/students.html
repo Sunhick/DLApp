@@ -21,7 +21,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <form ng-controller="studentController as stdCtrl">
+          <form ng-controller="studentController">
             <div class="panel panel-default">
               <div class="panel-heading">Demographic Information</div>
               <div class="row">
@@ -919,7 +919,7 @@
                   <input type="file" name="coverLetter" class="col-md-4">
                 </div>
             </div>
-            <div class="col-md-3"><a href="#" class="btn btn-primary" ng-click="stdCtrl.submit(data)">Submit Application</a></div>
+            <div class="col-md-3"><a href="#" class="btn btn-primary" ng-click="addStudent(data)">Submit Application</a></div>
             </div>
           </form>
         </div>
