@@ -16,7 +16,7 @@ module.exports = function(router) {
     router.post("/projects/add", function(req, res, next) {
         console.log("got request!" + req.body.name);
         
-        var prj = new Project({ title: req.body.title });
+        var prj = new Project(req.body);
 
         prj.save(function(err) {
             if(err) {
@@ -40,7 +40,7 @@ module.exports = function(router) {
         Project.find({}, function(err, records) {
             records.forEach(function(record) {
                 var project = {};
-                project.title = record.title;
+                project = record;
                 projects.push(project);
             });
 

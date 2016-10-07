@@ -2,20 +2,36 @@
   <div class="well">
     <h4>List of Projects</h4>
   </div>
+</div>
 
-  <div ng-controller="projectsController as prjCtrl">
-    <div class="col-md-6">
-          <label for="name">Project title:</label>
-          <input type="text" name="title" ng-model="project.title"><br><br>
-          <input type="submit" value="Submit" ng-click="prjCtrl.submitProject(project)">
-        </form>
+<div class="section" ng-controller="projectsController as prCtrl">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">All Projects</div>
+          <span>
+            <table class="table table-bordered table-hover specialCollapse">
+              <thead>
+                <tr>
+                  <th>Project Name</th>
+                  <th>Contact</th>
+                  <th>Description</th>
+                  <th>Special requirements</th>
+                </tr>
+              </thead>
+              <tbody ng-repeat="project in prCtrl.projects">
+                <tr>
+                  <td>{{project.title}}</td>
+                  <td>{{project.fEmail}}</td>
+                  <td>{{project.desc}}</td>
+                  <td>{{project.specialReq}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </span>
+        </div>
+      </div>
     </div>
-
-    <ul>
-      {{p.activeMenu}}
-      <li ng-repeat="each in prjCtrl.projects">
-          {{each.title}}
-      </li>
-    </ul>
   </div>
 </div>

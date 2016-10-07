@@ -16,6 +16,7 @@ angular.module('dlapp').controller('projectsController', function($http){
         });
     }();
 
+    // Todo : move this code to the faculty controller
     self.submitProject = function(project) {
         // create the data
         var data = { title: project.title };
