@@ -40,43 +40,43 @@
                     <label for="gender">*Gender:</label>
                   </div>
                   <div>
-                        <label class="radio-inline"><input type="radio" name="gender">Male</label>
-                        <label class="radio-inline"><input type="radio" name="gender">Female</label>
+                        <label class="radio-inline"><input type="radio" name="gender" value="Male" ng-model="data.gender">Male</label>
+                        <label class="radio-inline"><input type="radio" name="gender" value="Female" ng-model="data.gender">Female</label>
                   </div>
                   </div>
                   <div class="panel-body col-md-12">
                     <label for="origin">Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central American, or Spanish Origin?</label>
                   </div>
                   <div class="panel-body">
-                        <label class="radio-inline"><input type="radio" name="origin">Yes</label>
-                        <label class="radio-inline"><input type="radio" name="origin">No</label>
-                        <label class="radio-inline"><input type="radio" name="origin">I do not wish to provide this information</label>
+                        <label class="radio-inline"><input type="radio" name="origin" value="Yes" ng-model="data.origin">Yes</label>
+                        <label class="radio-inline"><input type="radio" name="origin" value="No" ng-model="data.origin">No</label>
+                        <label class="radio-inline"><input type="radio" name="origin" value="I do not wish to provide this information" ng-model="data.origin">I do not wish to provide this information</label>
                   </div>
 
                   <div class="panel-body col-md-12">
-                    <label for="origin">Please check your race (select all that apply):</label>
+                    <label for="selectRace">Please check your race (select all that apply):</label>
                   </div>
 
                   <div class="checkbox">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="origin" value="">American Indian or Alaskan Native</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="selectRace" value="American Indian or Alaskan Native" ng-model="data.race1">American Indian or Alaskan Native</label>
                   </div>
                   <div class="checkbox">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="origin" value="">Black or African-American</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="selectRace" value="Black or African-American" ng-model="data.race2">Black or African-American</label>
                   </div>
                   <div class="checkbox">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="origin" value="">Native Hawaiian or other Pacific Islander</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="selectRace" value="Native Hawaiian or other Pacific Islander" ng-model="data.race3">Native Hawaiian or other Pacific Islander</label>
                   </div>
                   <div class="checkbox">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="origin" value="">Asian</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="selectRace" value="Asian" ng-model="data.race4">Asian</label>
                   </div>
                   <div class="checkbox">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="origin" value="">White</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="selectRace" value="White" ng-model="data.race5">White</label>
                   </div>
                    <div class="checkbox">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="origin" value="">Other</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="selectRace" value="Other" ng-model="data.race6">Other</label>
                   </div>
                   <div class="checkbox">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="origin" value="">Do Not Wish to Provide</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="selectRace" value="Do Not Wish to Provide" ng-model="data.race7">Do Not Wish to Provide</label>
                   </div>
 
 
@@ -84,32 +84,32 @@
               <div class="panel-body">
                     <div class="panel-body col-md-6">
                         <label for="addressLine1">*Address Line 1:</label>
-                        <input type="text" class="form-control" id="addressLine1">
+                        <input type="text" class="form-control" id="addressLine1" ng-model="data.addressLine1Boulder">
                     </div>
 
                     <div class="panel-body col-md-6">
                           <label for="addressLine2">Address Line 2:</label>
-                          <input type="text" class="form-control" id="addressLine2">
+                          <input type="text" class="form-control" id="addressLine2" ng-model="data.addressLine2Boulder">
                     </div>
 
                     <div class="panel-body col-md-6">
                           <label for="city">*City:</label>
-                          <input type="text" class="form-control" id="city">
+                          <input type="text" class="form-control" id="city" ng-model="data.cityBoulder">
                     </div>
 
                     <div class="panel-body col-md-6">
                           <label for="state">State/Province/Region:</label>
-                          <input type="text" class="form-control" id="state">
+                          <input type="text" class="form-control" id="state" ng-model="data.stateBoulder">
                     </div>
 
                     <div class="panel-body col-md-2">
                           <label for="zip">*Zip:</label>
-                          <input type="text" class="form-control" id="zip">
+                          <input type="text" class="form-control" id="zip" ng-model="data.zipBoulder">
                     </div>
 
                     <div class="panel-body col-md-4">
-                          <label for="country">*Country:</label>
-                          <select class="form-control" id="country" name="country">
+                          <label for="country">Country:</label>
+                          <select class="form-control" id="country" name="country" disabled>
                               <option value="">--</option>
                               <option value="AF">Afghanistan</option>
                               <option value="AX">Aland Islands</option>
@@ -361,11 +361,11 @@
 
                     <div class="panel-body col-md-2">
                           <label for="phoneNumber">*Phone Number:</label>
-                          <input type="text" class="form-control" id="phoneNumber">
+                          <input type="text" class="form-control" id="phoneNumber" ng-model="data.phoneNumerBouler">
                     </div>
                     <div class="panel-body col-md-4">
                             <label for="boulderEmail">*Boulder Email:</label>
-                            <input type="text" class="form-control" id="boulderEmail">
+                            <input type="text" class="form-control" id="boulderEmail" ng-model="data.emailBoulder">
                       </div>
 
               </div>
@@ -373,32 +373,32 @@
               <div class="panel-body">
                     <div class="panel-body col-md-6">
                         <label for="addressLine1">*Address Line 1:</label>
-                        <input type="text" class="form-control" id="addressLine1">
+                        <input type="text" class="form-control" id="addressLine1" ng-model="data.addressLine1Summer">
                     </div>
 
                     <div class="panel-body col-md-6">
                           <label for="addressLine2">Address Line 2:</label>
-                          <input type="text" class="form-control" id="addressLine2">
+                          <input type="text" class="form-control" id="addressLine2" ng-model="data.addressLine2Summer">
                     </div>
 
                     <div class="panel-body col-md-6">
                           <label for="city">*City:</label>
-                          <input type="text" class="form-control" id="city">
+                          <input type="text" class="form-control" id="city" ng-model="data.citySummer">
                     </div>
 
                     <div class="panel-body col-md-6">
                           <label for="state">State/Province/Region:</label>
-                          <input type="text" class="form-control" id="state">
+                          <input type="text" class="form-control" id="state" ng-model="data.stateSummer">
                     </div>
 
                     <div class="panel-body col-md-2">
                           <label for="zip">*Zip:</label>
-                          <input type="text" class="form-control" id="zip">
+                          <input type="text" class="form-control" id="zip" ng-model="data.zipSummer">
                     </div>
 
                     <div class="panel-body col-md-4">
                           <label for="country">*Country:</label>
-                          <select class="form-control" id="country" name="country">
+                          <select class="form-control" id="country" name="country" ng-model="data.countrySummer">
                               <option value="">--</option>
                               <option value="AF">Afghanistan</option>
                               <option value="AX">Aland Islands</option>
@@ -650,11 +650,11 @@
 
                     <div class="panel-body col-md-2">
                           <label for="phoneNumber">*Phone Number:</label>
-                          <input type="text" class="form-control" id="phoneNumber">
+                          <input type="text" class="form-control" id="phoneNumber" ng-model="data.phoneNumberSummer">
                     </div>
                     <div class="panel-body col-md-4">
                             <label for="summerEmail">*Summer Email:</label>
-                            <input type="text" class="form-control" id="summerEmail">
+                            <input type="text" class="form-control" id="summerEmail" ng-model="data.emailSummer">
                       </div>
               </div>
               <div class="panel-heading">Academic Information</div>
@@ -664,8 +664,8 @@
                     </div>
                     <div class="panel-body col-md-6">
                           <label for="primary_major">*Primary Major:</label>
-                          <select class="form-control" id="primary_major" name="primary_major">
-                              <option value="PS">Please Select</option>
+                          <select class="form-control" id="primary_major" name="primary_major" ng-model="data.primaryMajor">
+                              <option value="">Please Select</option>
                               <option value="ASEN">Aerospace Engineering</option>
                               <option value="AMEN">Applied Mathematics</option>
                               <option value="AREN">Architectural Engineering</option>
@@ -684,11 +684,12 @@
                     </div>
                     <div class="panel-body col-md-3">
                           <label for="gpa">*GPA:</label>
-                          <input type="text" class="form-control" id="gpa">
+                          <input type="text" class="form-control" id="gpa" ng-model="data.gpa">
                     </div>
                     <div class="panel-body col-md-6">
                           <label for="secondary_major">Secondary Major:</label>
-                          <select class="form-control" id="secondary_major" name="secondary_major">
+                          <select class="form-control" id="secondary_major" name="secondary_major" ng-model="data.secondaryMajor">
+                              <option value="">Please Select</option>
                               <option value="NOSM">I did not have a second major</option>
                               <option value="ASEN">Aerospace Engineering</option>
                               <option value="AMEN">Applied Mathematics</option>
@@ -709,8 +710,8 @@
                     </div>
                     <div class="panel-body col-md-6">
                           <label for="school_level">*Level in school as of next fall:</label>
-                          <select class="form-control" id="school_level" name="school_level">
-                            <option value="PS">Please Select</option>
+                          <select class="form-control" id="school_level" name="school_level" ng-model="data.schoolLevel">
+                            <option value="">Please Select</option>
                             <option value="Freshman">Freshman</option>
                             <option value="Sophomore">Sophomore</option>
                             <option value="Junior">Junior</option>
@@ -720,8 +721,8 @@
                     </div>
                     <div class="panel-body col-md-3">
                           <label for="ListGradMonth">*Anticipated Graduation Date:</label>
-                          <select class="form-control col-md-3" id="listGradMonth" name="listGradMonth">
-                                <option value="selectmonth">Month</option>
+                          <select class="form-control col-md-3" id="listGradMonth" name="listGradMonth" ng-model="data.listGradMonth">
+                                <option value="">Month</option>
                                 <option value="May">May</option>
                                 <option value="August">August</option>
                                 <option value="December">December</option>
@@ -729,8 +730,8 @@
                     </div>
                     <div class="panel-body col-md-3">
                           <label for="listGradYear">&nbsp;&nbsp;</label>
-                          <select class="form-control" name="listGradYear" id="listGradYear">
-                                <option value="selectyear">Year</option>
+                          <select class="form-control" name="listGradYear" id="listGradYear" ng-model="data.listGradYear">
+                                <option value="">Year</option>
                                 <option value="2015">2015</option>
                                 <option value="2016">2016</option>
                                 <option value="2017">2017</option>
@@ -742,12 +743,12 @@
                     </div>
                     <div class="panel-body col-md-3">
                           <label for="sid">*Student Number:</label>
-                          <input type="text" class="form-control" id="sid">
+                          <input type="text" class="form-control" id="sid" ng-model="data.sid">
                     </div>
                     <div class="panel-body col-md-12">
                       <label for="research_exp">Do you have previous research experience?</label>
-                      <label class="radio-inline"><input type="radio" name="research_exp">Yes</label>
-                      <label class="radio-inline"><input type="radio" name="research_exp">No (This will not affect your eligibility!)</label>
+                      <label class="radio-inline"><input type="radio" name="research_exp" value="Yes" ng-model="data.researchExperience">Yes</label>
+                      <label class="radio-inline"><input type="radio" name="research_exp" value="No" ng-model="data.researchExperience">No (This will not affect your eligibility!)</label>
                   </div>
               </div>
 

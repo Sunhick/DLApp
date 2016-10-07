@@ -7,39 +7,36 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var studentSchema2 = new mongoose.Schema({
-        firstName:'string',
-        lastName:'string'
-});
-
-// var studentSchema = new Schema({
-//     firstName: String,
-//     lastName: String,
-//     gender: String,
-//     origin: String,
-//     race: String,
-//     addressLine1Boulder: String,
-//     addressLine2Boulder: String,
-//     cityBoulder: String,
-//     stateBoulder: String,
-//     zipBoulder: Number,
-//     emailBoulder: String,
-//     phoneNumerBouler: String,
-//     addressLine1Summer: String,
-//     addressLine2Summer: String,
-//     citySummer: String,
-//     stateSummer: String,
-//     zipSummer: String,
-//     emailSummer: String,
-//     phoneNumberSummer: String,
-//     primaryMajor: String,
-//     gpa: Number,
-//     secondaryMajor: String,
-//     schoolLevel: String,
-//     listGradMonth: String,
-//     listGradYear: Number,
-//     sid: Number,
-//     researchExperience: String,
+var studentSchema = new Schema({
+    firstName: String,
+    lastName: String,
+    gender: String,
+    origin: String,
+    race: String,
+    addressLine1Boulder: String,
+    addressLine2Boulder: String,
+    cityBoulder: String,
+    stateBoulder: String,
+    zipBoulder: Number,
+    countryBoulder: String,
+    phoneNumerBouler: String,
+    emailBoulder: String,
+    addressLine1Summer: String,
+    addressLine2Summer: String,
+    citySummer: String,
+    stateSummer: String,
+    zipSummer: String,
+    countrySummer: String,
+    phoneNumberSummer: String,
+    emailSummer: String,
+    primaryMajor: String,
+    gpa: Number,
+    secondaryMajor: String,
+    schoolLevel: String,
+    listGradMonth: String,
+    listGradYear: Number,
+    sid: Number,
+    researchExperience: String,
 //     appliedBefore: String,
 //     otherFallEmployment: String,
 //     projectInterest: String,
@@ -68,8 +65,8 @@ var studentSchema2 = new mongoose.Schema({
 // studentSchema.plugin(filePlugin, {
 //    name: "coverLetter",
 //    upload_to: make_upload_to_model(uploads, 'coverLetter')
-// });
+ });
 
-var Student = mongoose.model('Student', studentSchema2);
+var Student = mongoose.model('Student', studentSchema);
 
 module.exports = Student;
