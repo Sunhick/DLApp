@@ -812,10 +812,31 @@
                         <label for="backgroundCheck">Have you had a background check yet (at CU)? If yes when? (Take your best guess if you aren't sure.)</label>
                     </div>
                     <div class="panel-body col-md-8">
-                      <label class="radio-inline"><input type="radio" name="backgroundCheck">Yes</label>
-                      <label class="radio-inline"><input type="radio" name="backgroundCheck">Not sure</label>
-                      <label class="radio-inline"><input type="radio" name="backgroundCheck">No</label>
+                          <label class="radio-inline"><input type="radio" name="backgroundCheck" ng-model="backgroundCheck" value="yes">Yes</label>
+                          <label class="radio-inline"><input type="radio" name="backgroundCheck" ng-model="backgroundCheck" value="not_sure" >Not sure</label>
+                          <label class="radio-inline"><input type="radio" name="backgroundCheck" ng-model="backgroundCheck" value="no" checked>No</label>
                     </div>
+                    <div class="panel-body col-md-3" ng-show="backgroundCheck=='yes'">
+                          <select class="form-control col-md-3" id="Semester" name="Semester">
+                                <option value="selectSemenster">Semester</option>
+                                <option value="Spring">Spring</option>
+                                <option value="Summer">Summer</option>
+                                <option value="Fall">Fall</option>
+                          </select>&nbsp;
+                    </div>
+                    <div class="panel-body col-md-3" ng-show="backgroundCheck=='yes'">
+                          <select class="form-control" name="listYear" id="listYear">
+                                <option value="selectyear">Year</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                          </select>
+                    </div>
+
                   </div>
 
                   <div class="row">
@@ -823,18 +844,39 @@
                       <label for="awarenessTraining">Have you had Discrimination and Harassment Awareness training yet (at CU)? If yes when? (Take your best guess if you aren't sure.)</label>
                     </div>
                     <div class="panel-body col-md-8">
-                          <label class="radio-inline"><input type="radio" name="awarenessTraining">Yes</label>
-                          <label class="radio-inline"><input type="radio" name="awarenessTraining">Not sure</label>
-                          <label class="radio-inline"><input type="radio" name="awarenessTraining">No</label>
+                          <label class="radio-inline"><input type="radio" name="awarenessTraining" ng-model="awarenessTraining" value="yes">Yes</label>
+                          <label class="radio-inline"><input type="radio" name="awarenessTraining" ng-model="awarenessTraining" value="not_sure" >Not sure</label>
+                          <label class="radio-inline"><input type="radio" name="awarenessTraining" ng-model="awarenessTraining" value="no" checked>No</label>
                     </div>
+                  <div class="panel-body col-md-3" ng-show="awarenessTraining=='yes'">
+                        <select class="form-control col-md-3" id="Semester" name="Semester">
+                              <option value="selectSemenster">Semester</option>
+                              <option value="Spring">Spring</option>
+                              <option value="Summer">Summer</option>
+                              <option value="Fall">Fall</option>
+                        </select>&nbsp;
+                  </div>
+                  <div class="panel-body col-md-3" ng-show="awarenessTraining=='yes'">
+                        <select class="form-control" name="listYear" id="listYear">
+                              <option value="selectyear">Year</option>
+                              <option value="2015">2015</option>
+                              <option value="2016">2016</option>
+                              <option value="2017">2017</option>
+                              <option value="2018">2018</option>
+                              <option value="2019">2019</option>
+                              <option value="2020">2020</option>
+                              <option value="2021">2021</option>
+                        </select>
+                  </div>
+                  <div ng-hide="showAwarenessTraining2()"> </div>
                   </div>
 
-                  <div class="panel-body col-md-4">
-                    <label for="ssnInfo">Last four digits of your Social Security Number: (this will only be used to acess your background check information)</label>
-                  </div>
-                  <div class="panel-body col-md-8">
-                    <input type="password" class="form-control-inline" id="ssnInfo" maxlength="4">
-                  </div>
+                    <div class="panel-body col-md-4">
+                      <label for="ssnInfo">Last four digits of your Social Security Number: (this will only be used to acess your background check information)</label>
+                    </div>
+                    <div class="panel-body col-md-8">
+                      <input type="password" class="form-control-inline" id="ssnInfo" maxlength="4">
+                    </div>
 
             </div>
 
