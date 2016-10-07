@@ -16,7 +16,7 @@ angular.module('dlapp').controller('projectsController', function($http){
         var data = { name: project.name };
 
         // post the data
-        return $http.post("/projects/add", data)
+        $http.post("/projects/add", data)
             .then(function(response) {
                 self.projects.push(data);
             });
