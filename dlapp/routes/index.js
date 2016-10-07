@@ -20,6 +20,11 @@ module.exports = function(router) {
         res.render('partials/login');
     });
 
+    router.post('/login/register', function(req, res, next) {
+        var data = req.body;
+        console.log("register clicked " + data.username + data.email + data.password);
+    });
+
     router.get('/partials/faculty', function(req, res, next) {
         res.render('partials/faculty');
     });
