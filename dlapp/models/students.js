@@ -65,12 +65,6 @@ studentSchema.plugin(filePlugin, {
    upload_to: make_upload_to_model(uploads, 'coverLetter')
 });
 
-var studentSchema = new Schema({
-    // primary faculty information
-    firstName: String,
-    lastName: String
-});
-
 var Student = mongoose.model('Student', studentSchema);
 
 module.exports = Student;
