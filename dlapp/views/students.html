@@ -21,19 +21,20 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <form>
+          <form ng-controller="studentController as stdCtrl">
             <div class="panel panel-default">
               <div class="panel-heading">Demographic Information</div>
+              <div class="row">
                   <div class="panel-body col-md-6">
                         <label for="firstName">*First Name:</label>
-                        <input type="text" class="form-control" id="firstName">
+                        <input type="text" class="form-control" id="firstName" ng-model="data.firstName">
                   </div>
 
                   <div class="panel-body col-md-6">
                         <label for="lastName">*Last Name:</label>
-                        <input type="text" class="form-control" id="lastName">
+                        <input type="text" class="form-control" id="lastName" ng-model="data.lastName">
                   </div>
-
+                  </div>
                   <div class="col-md-1">
                     <label for="gender">*Gender:</label>
                   </div>
@@ -875,10 +876,9 @@
                   <label for="coverLetter" class="col-md-2">&nbsp;&nbsp;&nbsp;&nbsp;Cover Letter</label>
                   <input type="file" name="coverLetter" class="col-md-4">
                 </div>
-
-              </div>
             </div>
-            <div class="col-md-3"><a href="#" class="btn btn-primary">Submit Application</a></div>
+            <div class="col-md-3"><a href="#" class="btn btn-primary" ng-click="stdCtrl.submit(data)">Submit Application</a></div>
+            </div>
           </form>
         </div>
       </div>
