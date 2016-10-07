@@ -15,62 +15,208 @@
 
   </div>
 
-
-  <div class="section">
-    <div class="container">
-      <div class="row">
-        <form>
-          <!--Second faculty Information row-->
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              Faculty Member Information
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-5">
-                  <label for="firstName">*Faculty First Name:</label>
-                  <input class="form-control" id="firstName" type="text">
-                </div>
-                <div class="col-md-3">
-                  <label for="phoneNumber">*Faculty Phone Number:</label>
-                  <input class="form-control" for="phoneNumber">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-5">
-                  <label for="email">*Faculty Email address</label>
-                  <input for="email" class="form-control">
-                </div>
-                <div clas="col-md-5">
-                  <label for="department">*Faculty department/program</label>
-                  <br/>
-                  <select class="form-control text-xs-left">
-                    <option value="PS">Please Select</option>
-                    <option value="ASEN">Aerospace Engineering</option>
-                    <option value="AMEN">Applied Mathematics</option>
-                    <option value="AREN">Architectural Engineering</option>
-                    <option value="CHEN">Chemical Engineering</option>
-                    <option value="CBEN">Chemical and Biological Engineering</option>
-                    <option value="CVEN">Civil Engineering</option>
-                    <option value="CSEN">Computer Science</option>
-                    <option value="EEEN">Electrical Engineering</option>
-                    <option value="ECEN">Electrical and Computer Engineering</option>
-                    <option value="EPEN">Engineering Physics</option>
-                    <option value="EVEN">Environmental Engineering</option>
-                    <option value="GEEN">Engineering Plus</option>
-                    <option value="MCEN">Mechanical Engineering</option>
-                    <option value="TMEN">Technology, Arts, and Media</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <!--Second faculty Information row-->
-
-
-        </form>
+<div class="container">
+    <form>
+      <div class="form-group">
+        <label for="Name">Name:</label>
+        <input type="name" class="form-control" id="name" placeholder="Enter Name">
       </div>
-    </div>
+      <div class="form-group">
+        <label for="Phone Number">Number:</label>
+        <input type="name" class="form-control" id="name" placeholder="Enter Phone Number">
+      </div>
+      <div class="form-group">
+        <label for="Email">Email:</label>
+        <input type="name" class="form-control" id="name" placeholder="Enter Email">
+      </div>
+      <div class="form-group">
+        <label for="Department">Department:</label>
+        <input type="name" class="form-control" id="name" placeholder="Enter Department">
+      </div>
+       <div class="form-group">
+        <label for="Department">Does the project have focus on Engineering for developing communities:</label>
+      <h5><p><font color="grey"> Please select one option</font></p></h5>
+      <div class="checkbox">
+        <label><input type="checkbox"> Yes</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox"> No</label>
+      </div>
+
+      <h1>SECOND FACULTY(Optional)</h1>
+      <div class="form-group">
+        <label for="Name">Name:</label>
+        <input type="name" class="form-control" id="name" placeholder="Enter Name">
+      </div>
+      <div class="form-group">
+        <label for="Phone Number">Number:</label>
+        <input type="name" class="form-control" id="name" placeholder="Enter Phone Number">
+      </div>
+      <div class="form-group">
+        <label for="Email">Email:</label>
+        <input type="name" class="form-control" id="name" placeholder="Enter Email">
+      </div>
+      <div class="form-group">
+        <label for="Department">Department:</label>
+        <input type="name" class="form-control" id="name" placeholder="Enter Department">
+      </div>
+
+      <h1>GRAD STUDENT / POST DOC (Optional)</h1>
+       <div class="form-group">
+        <label for="Name">Grad Student / Post Doc Name:</label>
+        <input type="name" class="form-control" id="name" placeholder="Enter Name">
+      </div>
+      <div class="form-group">
+        <label for="Phone Number">Grad Student / Post Doc Number:</label>
+        <input type="name" class="form-control" id="name" placeholder="Enter Phone Number">
+      </div>
+      <div class="form-group">
+        <label for="Email">Grad Student / Post Doc Email:</label>
+        <input type="name" class="form-control" id="name" placeholder="Enter Email">
+      </div>
+
+      <h1>APPRENTICESHIP INFORMATION</h1>
+      <h5> (all fields under this heading are required)</h5>
+      <div class="form-group">
+        <label for=>Brief note on the Appentiship:</label>
+        <input type="name" class="form-control" id="name">
+      </div>
+      <div class="form-group">
+        <label for="Email">Link to the apprentiship project providing more information to the students:</label>
+        <input type="name" class="form-control" id="name" placeholder="Enter Web link">
+      </div>
+       <div class="form-group">
+        <label for="Name">Special Requirements the student should meet (Eg: Specific Courses, Class standings, Work Availability):</label>
+        <input type="name" class="form-control" id="name">
+      </div>
+        <div class="form-group">
+        <label for="Name">Only Students from Majors selected will be allowed to apply for the project</label>
+       </div>
+       <div class="multiselect">
+          <div class="selectBox" onclick="showCheckboxes()">
+              <select>
+                  <option>Select Department</option>
+              </select>
+              <div class="overSelect"></div>
+          </div>
+          <div id="checkboxes">
+              <label for="one"><input type="checkbox" id="one"/>Aerospace Engineering</label>
+              <label for="two"><input type="checkbox" id="two"/>Applied Mathematics </label>
+              <label for="three"><input type="checkbox" id="three"/>Architectural Engineering</label>
+               <label for="four"><input type="checkbox" id="four"/>Chemical Engineering</label>
+              <label for="five"><input type="checkbox" id="five"/>Chemical and Biological Engineering </label>
+              <label for="six"><input type="checkbox" id="six"/>Civil Engineering</label>
+               <label for="seven"><input type="checkbox" id="seven"/>Computer Science</label>
+              <label for="eight"><input type="checkbox" id="eight"/>Electrical Engineering </label>
+              <label for="nine"><input type="checkbox" id="nine"/>Electrical and Computer Engineering</label>
+              <label for="ten"><input type="checkbox" id="ten"/>Engineering Physics </label>
+              <label for="eleven"><input type="checkbox" id="eleven"/>Environmental Engineering</label>
+               <label for="twelve"><input type="checkbox" id="twelve"/>Engineering Plus</label>
+              <label for="thirteen"><input type="checkbox" id="thirteen"/>Mechanical Engineering </label>
+              <label for="fourteen"><input type="checkbox" id="fourteen"/>Technology Arts and Media</label>
+          </div>
+      </div>
+   </div>
+      <div class="form-group">
+      <label for="Department">Amount of Supervision required/interaction available:</label>
+      <h5><p><font color="grey"> Please select one option</font></p></h5>
+      <div class="checkbox">
+        <label><input type="checkbox"> Very little supervision; student will need to work largely independently</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox"> Moderate amount of supervision and interaction with others</label>
+      </div>
+       <div class="checkbox">
+        <label><input type="checkbox"> Good deal of supervision; student will work as an integral part of a research team</label>
+      </div>
+       <div class="form-group">
+        <label for="Department">Supervision provided by:</label>
+        <h5><p><font color="grey"> Please select one option</font></p></h5>
+      <div class="checkbox">
+        <label><input type="checkbox"> Supervision primarily by faculty supervisor</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox"> Supervision primarily by graduate students</label>
+      </div>
+       <div class="checkbox">
+        <label><input type="checkbox"> Supervision primarily a combination of faculty and graduate students</label>
+      </div>
+      <div class="form-group">
+        <label for="Department">Nature of work:</label>
+          <h5><p><font color="grey"> Please select one option</font></p></h5>
+      <div class="checkbox">
+        <label><input type="checkbox"> Nature of work is primarily theoretical, most work on paper/electronic medium</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox"> Nature of work is primarily experimental, requiring hands-on work in a lab</label>
+      </div>
+       <div class="checkbox">
+        <label><input type="checkbox"> Nature of work is primarily field based, requiring hands-on work in the field</label>
+      </div> 
+      <div class="checkbox">
+        <label><input type="checkbox"> Nature of work is primarily computer-related, involving coding/analysis</label>
+      </div>
+       <div class="checkbox">
+        <label><input type="checkbox"> Nature of work is a combination of several types of work</label>
+      </div>
+       <div class="checkbox">
+        <label><input type="checkbox"> Others, Please Specify</label>
+         <input type="name" class="form-control" id="name">
+      </div>    
+      <div class="form-group">
+        <label for="Department">Amount of prior work conducted in association with this project:</label>
+          <h5><p><font color="grey"> Please select one option</font></p></h5>
+      <div class="checkbox">
+        <label><input type="checkbox"> No prior work; student will be starting from basic idea</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox">Some prior work; student will build on work of others</label>
+      </div>
+       <div class="checkbox">
+        <label><input type="checkbox"> Well-established body of work; student will refine/improved upon efforts of others</label>
+      </div> 
+       <div class="checkbox">
+        <label><input type="checkbox"> Others, Please Specify</label>
+         <input type="name" class="form-control" id="name">
+      </div>
+      <div class="form-group">
+        <label for="Name">Name any specific student desired(if any)- make sure to ask them to apply:</label>
+        <input type="name" class="form-control" id="name">
+      </div>
+
+      <h1>FINANCES</h1>
+      <h5> (all fields under this heading are required)</h5>
+       <h5><p><font color="grey"> Please select one option</font></p></h5>
+      <div class="form-group">
+        <label for="Name">What speed type will you use for your 50% match of the funding :</label>
+        <input type="name" class="form-control" id="name">
+      </div>
+      <div class="form-group">
+       <label for="Name">OR</label>
+       </div>
+      <div class="checkbox">
+        <label><input type="checkbox"> Not Sure</label>
+      </div>
+      <div class="form-group">
+        <label for="Name">Accounting contact for your Project:</label>
+        <input type="name" class="form-control" id="name">
+      </div>
+
+      <h1>OTHERS</h1>
+      <h5> (all fields under this heading are required)</h5>
+      <div class="form-group">
+        <label for="Department">Have you supervised a discovery learning apprentice in the past(This question is intended to the faculty advisor not the grad student or the post doc):</label>
+        <h5><p><font color="grey"> Please select one option</font></p></h5>
+      <div class="checkbox">
+        <label><input type="checkbox"> Yes</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox">No</label>
+      </div>
+     <div class="form-group">
+        <h5><p><font color="grey">Please ensure that all information is correct before submitting your project. You will not be able to return to this page to make changes or corrections. Once you are sure everything is correct, you may proceed.</font></p></h5>
+      <div class="checkbox">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
   </div>
+
