@@ -756,14 +756,14 @@
               <div class="panel-body">
                     <div class="col-md-12">
                         <label for="applied_before">Have you applied for Discovery Learning Apprenticeship before?</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <label class="radio-inline"><input type="radio" name="applied_before">Yes</label>
-                          <label class="radio-inline"><input type="radio" name="applied_before">Not sure</label>
-                          <label class="radio-inline"><input type="radio" name="applied_before">No</label>
+                          <label class="radio-inline"><input type="radio" name="applied_before" ng-model="data.appliedBefore" value="yes">Yes</label>
+                          <label class="radio-inline"><input type="radio" name="applied_before" ng-model="data.appliedBefore" value="not_sure">Not sure</label>
+                          <label class="radio-inline"><input type="radio" name="applied_before" ng-model="data.appliedBefore" value="no">No</label>
                     </div>
 
                     <div class="panel-body col-md-6">
                       <label for="otherFallEmployment">Other fall employment planned:</label>
-                      <input type="text" class="form-control" id="otherFallEmployment">
+                      <input type="text" class="form-control" id="otherFallEmployment" ng-model="data.otherFallEmployment">
                     </div>
 
                     <div class="panel-body col-md-12">
@@ -776,7 +776,7 @@
                     </div>
                     <div class="panel-body col-md-10">
                         <select class="form-control col-md-3" id="listProjects" name="listProjects">
-                          <option value="selectProject">Please select project</option>
+                          <option value="selectProject" ng.model="data.firstChoice">Please select project</option>
                         </select>
                     </div>
 
@@ -785,7 +785,7 @@
                     </div>
                     <div class="panel-body col-md-10">
                         <select class="form-control col-md-3" id="listProjects" name="listProjects">
-                          <option value="selectProject">Please select project</option>
+                          <option value="selectProject" ng.model="data.secondChoice">Please select project</option>
                         </select>
                     </div>
 
@@ -794,7 +794,7 @@
                     </div>
                     <div class="panel-body col-md-10">
                         <select class="form-control col-md-3" id="listProjects" name="listProjects">
-                          <option value="selectProject">Please select project</option>
+                          <option value="selectProject" ng-model="data.thirdChoice">Please select project</option>
                         </select>
                     </div>
 
@@ -803,7 +803,7 @@
                     </div>
                     <div class="panel-body col-md-10">
                         <select class="form-control col-md-3" id="listProjects" name="listProjects">
-                          <option value="selectProject">Please select project</option>
+                          <option value="selectProject" ng-model="data.fourthChoice">Please select project</option>
                         </select>
                     </div>
 
@@ -812,7 +812,7 @@
                     </div>
                     <div class="panel-body col-md-10">
                         <select class="form-control col-md-3" id="listProjects" name="listProjects">
-                          <option value="selectProject">Please select project</option>
+                          <option value="selectProject" ng-model="data.fifthChoice">Please select project</option>
                         </select>
                     </div>
 
@@ -821,28 +821,28 @@
                         <label for="backgroundCheck">Have you had a background check yet (at CU)? If yes when? (Take your best guess if you aren't sure.)</label>
                     </div>
                     <div class="panel-body col-md-8">
-                          <label class="radio-inline"><input type="radio" name="backgroundCheck" ng-model="backgroundCheck" value="yes">Yes</label>
-                          <label class="radio-inline"><input type="radio" name="backgroundCheck" ng-model="backgroundCheck" value="not_sure" >Not sure</label>
-                          <label class="radio-inline"><input type="radio" name="backgroundCheck" ng-model="backgroundCheck" value="no" checked>No</label>
+                          <label class="radio-inline"><input type="radio" name="backgroundCheck" ng-model="data.backgroundCheck" value="yes">Yes</label>
+                          <label class="radio-inline"><input type="radio" name="backgroundCheck" ng-model="data.backgroundCheck" value="not_sure" >Not sure</label>
+                          <label class="radio-inline"><input type="radio" name="backgroundCheck" ng-model="data.backgroundCheck" value="no" checked>No</label>
                     </div>
-                    <div class="panel-body col-md-3" ng-show="backgroundCheck=='yes'">
+                    <div class="panel-body col-md-3" ng-show="data.backgroundCheck=='yes'">
                           <select class="form-control col-md-3" id="Semester" name="Semester">
                                 <option value="selectSemenster">Semester</option>
-                                <option value="Spring">Spring</option>
-                                <option value="Summer">Summer</option>
-                                <option value="Fall">Fall</option>
+                                <option value="Spring" ng-model="data.backgroundCheckSem">Spring</option>
+                                <option value="Summer" ng-mpdel="data.backgroundCheckSem">Summer</option>
+                                <option value="Fall" ng-model="backgroundCheckSem">Fall</option>
                           </select>&nbsp;
                     </div>
-                    <div class="panel-body col-md-3" ng-show="backgroundCheck=='yes'">
+                    <div class="panel-body col-md-3" ng-show="data.backgroundCheck=='yes'">
                           <select class="form-control" name="listYear" id="listYear">
                                 <option value="selectyear">Year</option>
-                                <option value="2015">2015</option>
-                                <option value="2016">2016</option>
-                                <option value="2017">2017</option>
-                                <option value="2018">2018</option>
-                                <option value="2019">2019</option>
-                                <option value="2020">2020</option>
-                                <option value="2021">2021</option>
+                                <option value="2015" ng-model="data.backgroundCheckYear">2015</option>
+                                <option value="2016" ng-model="data.backgroundCheckYear">2016</option>
+                                <option value="2017" ng-model="data.backgroundCheckYear">2017</option>
+                                <option value="2018" ng-model="data.backgroundCheckYear">2018</option>
+                                <option value="2019" ng-model="data.backgroundCheckYear">2019</option>
+                                <option value="2020" ng-model="data.backgroundCheckYear">2020</option>
+                                <option value="2021" ng-model="data.backgroundCheckYear">2021</option>
                           </select>
                     </div>
 
@@ -853,28 +853,28 @@
                       <label for="awarenessTraining">Have you had Discrimination and Harassment Awareness training yet (at CU)? If yes when? (Take your best guess if you aren't sure.)</label>
                     </div>
                     <div class="panel-body col-md-8">
-                          <label class="radio-inline"><input type="radio" name="awarenessTraining" ng-model="awarenessTraining" value="yes">Yes</label>
-                          <label class="radio-inline"><input type="radio" name="awarenessTraining" ng-model="awarenessTraining" value="not_sure" >Not sure</label>
-                          <label class="radio-inline"><input type="radio" name="awarenessTraining" ng-model="awarenessTraining" value="no" checked>No</label>
+                          <label class="radio-inline"><input type="radio" name="awarenessTraining" ng-model="data.awarenessTraining" value="yes">Yes</label>
+                          <label class="radio-inline"><input type="radio" name="awarenessTraining" ng-model="data.awarenessTraining" value="not_sure" >Not sure</label>
+                          <label class="radio-inline"><input type="radio" name="awarenessTraining" ng-model="data.awarenessTraining" value="no" checked>No</label>
                     </div>
-                  <div class="panel-body col-md-3" ng-show="awarenessTraining=='yes'">
+                  <div class="panel-body col-md-3" ng-show="data.awarenessTraining=='yes'">
                         <select class="form-control col-md-3" id="Semester" name="Semester">
                               <option value="selectSemenster">Semester</option>
-                              <option value="Spring">Spring</option>
-                              <option value="Summer">Summer</option>
-                              <option value="Fall">Fall</option>
+                              <option value="Spring" ng-model="data.awarenessTrainingSem">Spring</option>
+                              <option value="Summer" ng-model="data.awarenessTrainingSem">Summer</option>
+                              <option value="Fall" ng-model="data.awarenessTrainingSem">Fall</option>
                         </select>&nbsp;
                   </div>
-                  <div class="panel-body col-md-3" ng-show="awarenessTraining=='yes'">
+                  <div class="panel-body col-md-3" ng-show="data.awarenessTraining=='yes'">
                         <select class="form-control" name="listYear" id="listYear">
                               <option value="selectyear">Year</option>
-                              <option value="2015">2015</option>
-                              <option value="2016">2016</option>
-                              <option value="2017">2017</option>
-                              <option value="2018">2018</option>
-                              <option value="2019">2019</option>
-                              <option value="2020">2020</option>
-                              <option value="2021">2021</option>
+                              <option value="2015" ng-model="data.awarenessTrainingYear">2015</option>
+                              <option value="2016" ng-model="data.awarenessTrainingYear">2016</option>
+                              <option value="2017" ng-model="data.awarenessTrainingYear">2017</option>
+                              <option value="2018" ng-model="data.awarenessTrainingYear">2018</option>
+                              <option value="2019" ng-model="data.awarenessTrainingYear">2019</option>
+                              <option value="2020" ng-model="data.awarenessTrainingYear">2020</option>
+                              <option value="2021" ng-model="data.awarenessTrainingYear">2021</option>
                         </select>
                   </div>
                   <div ng-hide="showAwarenessTraining2()"> </div>
@@ -884,7 +884,7 @@
                       <label for="ssnInfo">Last four digits of your Social Security Number: (this will only be used to acess your background check information)</label>
                     </div>
                     <div class="panel-body col-md-8">
-                      <input type="password" class="form-control-inline" id="ssnInfo" maxlength="4">
+                      <input type="password" class="form-control-inline" id="ssnInfo" maxlength="4" ng-model="data.ssnInfo">
                     </div>
 
             </div>
@@ -897,19 +897,19 @@
 
                 <div class="row">
                   <label for="firstSkill" class="col-md-1">&nbsp;&nbsp;&nbsp;&nbsp;1.</label>
-                  <input type="text" class="form-control-inline col-md-7"  id="firstSkill" maxlength="75" placeholder="maximun length of 75 characters">
+                  <input type="text" class="form-control-inline col-md-7"  id="firstSkill" maxlength="75" placeholder="maximun length of 75 characters" ng-model="data.firstSkill">
                 </div>
                 <br/>
 
                 <div class="row">
                   <label for="secondSkill" class="col-md-1">&nbsp;&nbsp;&nbsp;&nbsp;2.</label>
-                  <input type="text" class="form-control-inline col-md-7"  id="secondSkill" maxlength="75" placeholder="maximun length of 75 characters">
+                  <input type="text" class="form-control-inline col-md-7"  id="secondSkill" maxlength="75" placeholder="maximun length of 75 characters" ng-model="data.secondSkill">
                 </div>
                 <br/>
 
                 <div class="row">
                   <label for="thirdSkill" class="col-md-1">&nbsp;&nbsp;&nbsp;&nbsp;3.</label>
-                  <input type="text" class="form-control-inline col-md-7"  id="thirdSkill" maxlength="75" placeholder="maximun length of 75 characters">
+                  <input type="text" class="form-control-inline col-md-7"  id="thirdSkill" maxlength="75" placeholder="maximun length of 75 characters" ng-model="data.thirdSkill">
                 </div>
                 <br/>
 
@@ -920,12 +920,12 @@
 
                 <div class="row">
                   <label for="resume" class="col-md-2">&nbsp;&nbsp;&nbsp;&nbsp;Resume</label>
-                  <input type="file" name="resume" class="col-md-4">
+                  <input type="file" name="resume" class="col-md-4" ng-model="data.resume">
                 </div>
 
                 <div class="row">
                   <label for="coverLetter" class="col-md-2">&nbsp;&nbsp;&nbsp;&nbsp;Cover Letter</label>
-                  <input type="file" name="coverLetter" class="col-md-4">
+                  <input type="file" name="coverLetter" class="col-md-4" ng-model="data.coverLetter">
                 </div>
             </div>
             <div class="col-md-3"><a href="#" class="btn btn-primary" ng-click="addStudent(data)">Submit Application</a></div>
