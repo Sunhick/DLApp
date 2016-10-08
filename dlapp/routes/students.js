@@ -5,11 +5,8 @@
 *  Copyright (c) 2016. University of Colorado, boulder
 */
 
-var dbConfig = require('../config/db')
-var mongoose = require('mongoose');
 var Student = require('../models/students');
 
-mongoose.createConnection(dbConfig.mongo.uri);
 
 module.exports = function(router) {
 

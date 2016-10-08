@@ -5,11 +5,7 @@
 *  Copyright (c) 2016. University of Colorado, boulder
 */
 
-var mongoose = require("mongoose");
 var Project = require("../models/projects")
-var dbConfig = require("../config/db")
-
-mongoose.connect(dbConfig.mongo.uri);
 
 module.exports = function(router) {
     // add project 

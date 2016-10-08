@@ -15,6 +15,7 @@ var projects = require('./routes/projects');
 var students = require('./routes/students');
 var users = require('./routes/users');
 var students = require('./routes/students');
+var dbConfig = require('./config/db');
 
 var app = express();
 
