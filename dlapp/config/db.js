@@ -9,14 +9,6 @@
 var mongoose = require("mongoose");
 var dbURI = 'mongodb://localhost:27017/dlapp';
 
-module.exports = {
-    mongo : {
-        uri : 'mongodb://localhost:27017/dlapp',
-        port: 27017
-    }
-};
-
-console.log('In db js file...')
 // Create the database connection 
 mongoose.connect(dbURI); 
 
