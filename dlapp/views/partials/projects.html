@@ -23,7 +23,12 @@
               <tbody ng-repeat="project in prCtrl.projects">
                 <tr>
                   <td>{{project.title}}</td>
-                  <td>{{project.fEmail}}</td>
+                  <td>
+                    {{project.fName}}<br/>
+                    {{project.fEmail}}<br/>
+                    {{project.phoneNumber | tel}}<br/>
+                    {{project.fDepartment}}
+                  </td>
                   <td>{{project.desc}}</td>
                   <td>{{project.specialReq}}</td>
                 </tr>
