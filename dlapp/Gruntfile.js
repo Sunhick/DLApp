@@ -5,64 +5,65 @@
 *  Copyright (c) 2016. University of Colorado, boulder
 */
 module.exports = function(grunt) {
-    grunt.initConfig({
-       jsDir: 'public/controllers/',
-       jsDistDir: 'dist/controllers/',    
-       cssDir: 'public/stylesheets/',
-       cssDistDir: 'dist/stylesheets/',
-       pkg: grunt.file.readJSON('package.json'),
+  grunt.initConfig({
+    jshint: {
+      all: ['public/controllers/*.js', 'public/filters/*.js']
+    },
 
-       concat: {
-         js: {
-           options: {
-             separator: ';'
-           },
-           src: ['<%=jsDir%>*.js'],
-           dest: '<%=jsDistDir%><%= pkg.name %>.js'
-         },
-         css: {
-           src: ['<%=cssDir%>*.css'],
-           dest: '<%=cssDistDir%><%= pkg.name %>.css'
-         }
-       },
+    uglify: {
+      build: {
+        files: {
+          'public/dist/js/dlapp.min.js': ['public/controllers/dlapp.js', 'public/controllers/*.js', 'public/filters/*.js']
+        }
+      }
+    },
 
-       uglify: {
-         options: {
-           banner: '/*! <%= pkg.name %> <%=grunt.template.today("dd-mm-yyyy") %> */\n'
-         },
-         dist: {
-           files: {
-             '<%=jsDistDir%><%= pkg.name %>.min.js': ['<%= concat.js.dest %>']
-           }
-         }
-       },
+    cssmin: {
+      build: {
+        files: {
+          'public/dist/css/style.min.css': 'public/stylesheets/*.css'
+        }
+      }
+    },
 
-       cssmin: {
-         add_banner: {
-           options: {
-             banner: '/*! <%= pkg.name %> <%=grunt.template.today("dd-mm-yyyy") %> */\n'
-           },
-           files: {
-             '<%=cssDistDir%><%= pkg.name %>.min.css': ['<%= concat.css.dest %>']
-           }
-         }
-       },
+    watch: {
+      css: {
+        files: ['public/stylesheets/*.css'],
+        tasks: ['cssmin']
+      },
+      js: {
+        files: ['public/controllers/*.js', 'public/filters/*.js'],
+        tasks: ['jshint', 'uglify']
+      }
+    },
 
-       watch: {
-       files: ['<%=jsDir%>*.js', '<%=cssDir%>*.css'],
-       tasks: ['concat', 'uglify', 'cssmin']
-       }
-     });
+    nodemon: {
+      dev: {
+        script: 'app.js'
+      }
+    },
 
-     grunt.loadNpmTasks('grunt-contrib-concat');
-     grunt.loadNpmTasks('grunt-contrib-uglify');
-     grunt.loadNpmTasks('grunt-contrib-cssmin');
-     grunt.loadNpmTasks('grunt-contrib-watch');
+    concurrent: {
+      options: {
+        logConcurrentOutput: true
+      },
+      tasks: ['nodemon', 'watch']
+    }   
 
-     grunt.registerTask('default', [
-       'concat',
-       'uglify',
-       'cssmin',
-       'watch'
-     ]);
-}
+  });
+
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  // grunt.loadNpmTasks('grunt-contrib-watch');
+  // grunt.loadNpmTasks('grunt-nodemon');
+  // grunt.loadNpmTasks('grunt-concurrent');
+
+  grunt.registerTask('default', [
+          'cssmin', 
+          'jshint', 
+          'uglify', 
+          // 'concurrent'
+        ]);
+
+};

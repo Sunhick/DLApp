@@ -4,7 +4,7 @@
 *
 *  Copyright (c) 2016. University of Colorado, boulder
 */
-angular.module('dlapp').controller('projectsController', function($http){
+angular.module('dlapp').controller('projectsController', ['$http', function($http){
     var self = this;
 
     // Get the list of projects from the backend(db)
@@ -26,5 +26,5 @@ angular.module('dlapp').controller('projectsController', function($http){
             .then(function(response) {
                 self.projects.push(response.data);
             });
-    }
-});
+    };
+}]);

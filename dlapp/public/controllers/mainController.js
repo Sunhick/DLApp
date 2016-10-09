@@ -4,7 +4,7 @@
 *
 *  Copyright (c) 2016. University of Colorado, boulder
 */
-angular.module('dlapp').controller('mainController', function(){
+angular.module('dlapp').controller('mainController', [function() {
     var self = this;
     self.activeMenu = "Home";
     self.headerMenus = [
@@ -17,4 +17,4 @@ angular.module('dlapp').controller('mainController', function(){
     self.activate = function(selectedIndex) {
         self.activeMenu = self.headerMenus[selectedIndex].name;
     };
-});
+}]);

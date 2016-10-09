@@ -4,7 +4,7 @@
 *
 *  Copyright (c) 2016. University of Colorado, boulder
 */
-angular.module('dlapp').controller('facultyController', function($http){
+angular.module('dlapp').controller('facultyController', ['$http', function($http){
     var self = this;
 
     self.submit = function(project) {
@@ -14,5 +14,5 @@ angular.module('dlapp').controller('facultyController', function($http){
             .then(function(response) {
                 // reset the fields or show successfully added message.
             });
-    }
-});
+    };
+}]);
