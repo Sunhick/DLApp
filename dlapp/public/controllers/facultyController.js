@@ -4,7 +4,9 @@
 *
 *  Copyright (c) 2016. University of Colorado, boulder
 */
-angular.module('dlapp').controller('facultyController', ['$http', function($http){
+angular.module('dlapp').controller('facultyController', ['$http', function($http) {
+    "use strict";
+    
     var self = this;
 
     self.submit = function(project) {

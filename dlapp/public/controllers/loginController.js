@@ -5,6 +5,8 @@
 *  Copyright (c) 2016. University of Colorado, boulder
 */
 angular.module('dlapp').controller('loginController', ['$http', function($http) {
+    "use strict";
+    
     var self = this;
     self.Submit = function(login) {   
         console.log("submit clicked " + login.email + login.pword);

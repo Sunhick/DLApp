@@ -5,6 +5,8 @@
 *  Copyright (c) 2016. University of Colorado, boulder
 */
 angular.module('dlapp').controller('projectsController', ['$http', function($http){
+    "use strict";
+    
     var self = this;
 
     // Get the list of projects from the backend(db)

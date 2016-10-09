@@ -5,6 +5,8 @@
 *  Copyright (c) 2016. University of Colorado, boulder
 */
 angular.module('dlapp').controller('mainController', [function() {
+    "use strict";
+    
     var self = this;
     self.activeMenu = "Home";
     self.headerMenus = [

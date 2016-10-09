@@ -6,6 +6,8 @@
 *  Copyright (c) 2016. University of Colorado, boulder
 */
 angular.module('dlapp').filter('tel', function () {
+    "use strict";
+    
     return function (tel) {
         if (!tel) { return ''; }
 

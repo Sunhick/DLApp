@@ -5,5 +5,7 @@
 *  Copyright (c) 2016. University of Colorado, boulder
 */
 angular.module('dlapp').controller('contactusController', ['$http', function($http) {
+    "use strict";
+    
     var self = this;
 }]);
