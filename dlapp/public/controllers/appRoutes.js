@@ -12,8 +12,7 @@ angular.module('dlapp').config(['$routeProvider', '$locationProvider',
                 
                 // home page
                 .when('/', {
-                    templateUrl: 'home',
-                    //controller: 'mainController'
+                    templateUrl: 'partials/home'
                 })
 
                 // login page
@@ -24,12 +23,12 @@ angular.module('dlapp').config(['$routeProvider', '$locationProvider',
 
                 // login page
                 .when('/projects', {
-                    templateUrl: '/projects',
+                    templateUrl: 'partials/projects',
                     controller: 'projectsController'
                 })
 
                 .when('/students',{
-                    templateUrl: 'students',
+                    templateUrl: 'partials/students',
                     controller: 'studentController'
                 })
 

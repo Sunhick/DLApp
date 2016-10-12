@@ -24,11 +24,6 @@ module.exports = function(router) {
         res.send(req.body);
     });
 
-    // projects page
-    router.get("/projects", function(req, res, next) {
-        res.render("partials/projects");
-    });
-
     router.get("/projects/list", function(req, res, next) {
         var projects = [];
         

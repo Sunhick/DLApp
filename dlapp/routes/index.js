@@ -4,37 +4,17 @@
 *
 *  Copyright (c) 2016. University of Colorado, boulder
 */
+var path = require('path');
 
 module.exports = function(router) {
 
-    /* GET home page. */
-    router.get('/', function(req, res, next) {
-      res.render('layout');
-    });
-
-    router.get('/home', function(req, res, next) {
-        res.render('home');
-    });
-
-    router.get('/partials/login', function(req, res, next) {
-        res.render('partials/login');
+    router.use('/partials/:page', function(req, res, next) {
+        res.render(path.join('partials',req.params.page));
     });
 
     router.post('/login/register', function(req, res, next) {
         var data = req.body;
         console.log("register clicked " + data.username + data.email + data.password);
-    });
-
-    router.get('/partials/faculty', function(req, res, next) {
-        res.render('partials/faculty');
-    });
-
-    router.get('/partials/contactus', function(req, res, next) {
-        res.render('partials/contactus')
-    });
-
-    router.get('/students', function(req, res, next) {
-        res.render('students');
     });
 
     // module.exports = router;
