@@ -7,11 +7,14 @@
     <link href="favicon.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+
     <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="/bower_components/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="/bower_components/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
     <script type="text/javascript" src="/controllers/dlapp.js"></script>
     <script type="text/javascript" src="/controllers/appRoutes.js"></script>
     <script type="text/javascript" src="/controllers/mainController.js"></script>
@@ -24,20 +27,24 @@
     <base href="/">
   </head>
   <body ng-cloak="" ng-app="dlapp">
-    <div class="container-fluid">
+    <div class="container-fluid" ng-controller="mainController as mainCtrl">
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">DL-App</a>
           </div>
           <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
-            <ul ng-controller="mainController as mainCtrl" class="nav navbar-nav navbar-left">
+            <ul class="nav navbar-nav navbar-left">
              <li ng-repeat="headerMenu in mainCtrl.headerMenus" ng-class="{active : mainCtrl.activeMenu == headerMenu.name}"><a ng-href="{{ headerMenu.link }}" ng-click="mainCtrl.activate($index)"><span ng-class="'{{headerMenu.glyphicon}}'">{{headerMenu.name}}</span></a></li>
              </ul>
 
             <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
-                <li ng-class="active"><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li ng-class="active">
+                  <a href="#" ng-click="mainCtrl.loginDialog()">
+                    <span class="glyphicon glyphicon-log-in"></span> Login
+                  </a>
+                </li>
               </ul>
             </div>
 

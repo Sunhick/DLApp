@@ -4,7 +4,7 @@
 *
 *  Copyright (c) 2016. University of Colorado, boulder
 */
-angular.module('dlapp').controller('mainController', [function() {
+angular.module('dlapp').controller('mainController', ['$uibModal', function($modal) {
     "use strict";
     
     var self = this;
@@ -18,5 +18,13 @@ angular.module('dlapp').controller('mainController', [function() {
 
     self.activate = function(selectedIndex) {
         self.activeMenu = self.headerMenus[selectedIndex].name;
+    };
+
+    self.loginDialog = function() {
+        var modalInstance = $modal.open({
+            templateUrl: 'partials/login',
+            controller: 'loginController as loginCtrl',
+            backdrop: 'static'
+        });
     };
 }]);

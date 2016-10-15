@@ -7,4 +7,4 @@
 
 // Module should be declared as below only once. 
 // And controller can access it as angular.module('testApp').controller(....);
-var app = angular.module('dlapp', ['ngRoute','ngResource']);
+var app = angular.module('dlapp', ['ngRoute','ngResource', 'ui.bootstrap']);

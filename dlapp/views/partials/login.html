@@ -1,82 +1,75 @@
-<div class="m-y-3 p-y-3 section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 col-sm-6 col-xs-6">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="text-xs-center">
-            Login
-          </h4>
-          </div>
-          <div class="panel-body" ng-controller="loginController as loginCtrl">
-            <form id="login-form" role="form" ng-model="login" method="post" autocomplete="off" class="form-horizantal">
-              <div class="form-group">
-                <label for="email" class="sr-only">Email</label>
-                <input id="email" type="email" ng-model="login.email" name="email" placeholder="somebody@example.com" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="key" class="sr-only">Password</label>
-                <input id="key" type="password" ng-model="login.pword" name="key" placeholder="Password" class="form-control">
-              </div>
-              <div class="checkbox"><span onclick="showPassword()" class="character-checkbox"></span><span class="label">Show password</span></div>
-              <input id="btn-login" type="submit" value="Log in" ng-click="loginCtrl.Submit(login)" class="btn btn-primary btn-lg btn-block">
-            </form>
-            <a href="javascript:;" data-toggle="modal" data-target=".forget-modal" class="forget">Forgot your password?</a>
-          </div>
-        </div>
+<div class="modal-body">
+   <!-- Nav tabs -->
+    <ul class="nav nav-pills nav-justified" role="tablist">
+      <li role="presentation" class="active"><a href="#login" role="tab" data-toggle="tab">Login</a></li>
+      <li role="presentation"><a href="#register" role="tab" data-toggle="tab">Register</a></li>
+    </ul>
 
-      </div>
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="login">
+        <form method="POST">
 
-
-      <div class="col-md-1">
-      </div>
-
-      <div class="col-md-5">
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="text-xs-center">
-            Register
-          </h4>
-          </div>
-          <div class="panel-body">
-            <div class="panel-body" ng-controller="loginController as loginCtrl">
-              <form id="reg-form" role="form" ng-model="reg" method="post" autocomplete="off" class="form-horizantal">
-                <div class="form-group">
-                  <input for="username" ng-model="reg.username" name="username" placeholder="username" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                  <label for="email" class="sr-only">Email</label>
-                  </div>
-
-                  <div class="form-group">
-                  <input id="email" type="email" ng-model="reg.email" name="email" placeholder="somebody@example.com" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                  <label for="key" class="sr-only">Password</label>
-                  </div>
-
-                  <div class="form-group">
-                  <input id="key" type="password" ng-model="reg.password" name="key" placeholder="Password" class="form-control">
-                  </div>
-
-                  <div class="form-group">
-                  <label for="key" class="sr-only">ConfirmPassword</label>
-                  </div>
-
-                  <div class="form-group">
-                  <input id="key" type="password" name="key" placeholder="Confirm Password" class="form-control">
-                </div>
-                <div class="checkbox"><span onclick="showPassword()" class="character-checkbox"></span><span class="label">Show password</span></div>
-                <input id="btn-login" type="submit" value="Register" ng-click="loginCtrl.register(reg)" class="btn btn-primary btn-lg btn-block">
-              </form>
+          <div class="form-group">
+            <br/>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></div>
+              <input autofocus required type="email" id="email" class="form-control" placeholder="CU email id" tabindex="1">
             </div>
           </div>
-        </div>
+
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
+              <input required type="password" class="form-control" placeholder="Password" tabindex="2">
+            </div>
+            <a href="#forget-password" class="btn btn-xs btn-link" tabindex="4">Forget password?</a>
+          </div>
+          
+          <div class="checkbox">
+              <label><input type="checkbox"> Remember me</label>
+          </div>
+
+          <a href="#create-account" class="btn btn-success" tabindex="5">Login</a>
+        </form>
       </div>
 
+      <div role="tabpanel" class="tab-pane" id="register">
+            <div class="form-group">
+              <br/>
+              <div class="input-group">
+                <div class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></div>
+                <input autofocus required type="email" id="email" class="form-control" placeholder="CU email id" tabindex="1">
+              </div>
+
+              <br/>
+              <div class="input-group">
+                <div class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></div>
+                <input autofocus required type="email" id="email" class="form-control" placeholder="Confirm email id" tabindex="2">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
+                <input required type="password" class="form-control" placeholder="Password" tabindex="3">
+              </div>
+
+              <br/>
+              <div class="input-group">
+                <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
+                <input required type="password" class="form-control" placeholder="Confirm Password" tabindex="4">
+              </div>
+            </div>
+            
+            <div class="checkbox">
+                <label><input type="checkbox"> Remember me</label>
+            </div>
+
+            <a href="#create-account" class="btn btn-info" tabindex="5">Create Account</a>
+          </form>
+      </div>
     </div>
-  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-danger" ng-click="loginCtrl.cancel()">Close</button>
 </div>
