@@ -1,8 +1,8 @@
 <div class="modal-body">
    <!-- Nav tabs -->
     <ul class="nav nav-pills nav-justified" role="tablist">
-      <li role="presentation" class="active"><a href="#login" role="tab" data-toggle="tab">Login</a></li>
-      <li role="presentation"><a href="#register" role="tab" data-toggle="tab">Register</a></li>
+      <li role="presentation" class="active"><a ng-click="loginCtrl.status=''" href="#login" role="tab" data-toggle="tab">Login</a></li>
+      <li role="presentation"><a ng-click="loginCtrl.status=''" href="#register" role="tab" data-toggle="tab">Register</a></li>
     </ul>
 
     <div class="tab-content">
@@ -13,14 +13,14 @@
             <br/>
             <div class="input-group">
               <div class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></div>
-              <input autofocus required type="email" id="email" class="form-control" placeholder="CU email id" tabindex="1">
+              <input autofocus required type="email" id="email" class="form-control" ng-model="login.email" placeholder="CU email id" tabindex="1">
             </div>
           </div>
 
           <div class="form-group">
             <div class="input-group">
               <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
-              <input required type="password" class="form-control" placeholder="Password" tabindex="2">
+              <input required type="password" ng-model="login.password" class="form-control" placeholder="Password" tabindex="2">
             </div>
             <a href="#forget-password" class="btn btn-xs btn-link" tabindex="4">Forget password?</a>
           </div>
@@ -29,7 +29,7 @@
               <label><input type="checkbox"> Remember me</label>
           </div>
 
-          <a href="#create-account" class="btn btn-success" tabindex="5">Login</a>
+          <a href="#create-account" class="btn btn-success" ng-click="loginCtrl.login(login)" tabindex="5">Login</a>
         </form>
       </div>
 
@@ -38,26 +38,26 @@
               <br/>
               <div class="input-group">
                 <div class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></div>
-                <input autofocus required type="email" id="email" class="form-control" placeholder="CU email id" tabindex="1">
+                <input autofocus required type="email" ng-model="reg.email" id="email" class="form-control" placeholder="CU email id" tabindex="1">
               </div>
 
               <br/>
               <div class="input-group">
                 <div class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></div>
-                <input autofocus required type="email" id="email" class="form-control" placeholder="Confirm email id" tabindex="2">
+                <input autofocus required type="email" ng-model="reg.confirmEmail" id="email" class="form-control" placeholder="Confirm email id" tabindex="2">
               </div>
             </div>
 
             <div class="form-group">
               <div class="input-group">
                 <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
-                <input required type="password" class="form-control" placeholder="Password" tabindex="3">
+                <input required type="password" ng-model="reg.password" class="form-control" placeholder="Password" tabindex="3">
               </div>
 
               <br/>
               <div class="input-group">
                 <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
-                <input required type="password" class="form-control" placeholder="Confirm Password" tabindex="4">
+                <input required type="password" ng-model="reg.confirmPassword" class="form-control" placeholder="Confirm Password" tabindex="4">
               </div>
             </div>
             
@@ -65,10 +65,12 @@
                 <label><input type="checkbox"> Remember me</label>
             </div>
 
-            <a href="#create-account" class="btn btn-info" tabindex="5">Create Account</a>
+            <a href="#create-account" class="btn btn-info" ng-click="loginCtrl.register(reg)" tabindex="5">Create Account</a>
           </form>
       </div>
     </div>
+
+    <p class="text-success">{{loginCtrl.status}}</p>
 </div>
 <div class="modal-footer">
   <button class="btn btn-danger" ng-click="loginCtrl.cancel()">Close</button>

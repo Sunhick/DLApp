@@ -8,9 +8,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var usersSchema = new Schema({
-    username: String,
+    // username: String,
     email: String,
-    password: String
+
+    // I shouldn't be storing clear text password. But it's okay for now. will change it to hash later
+    password: String 
 });
 
 var Users = mongoose.model('Users', usersSchema);

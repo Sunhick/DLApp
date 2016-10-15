@@ -12,8 +12,8 @@
     <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="/bower_components/angular-route/angular-route.min.js"></script>
-    <script type="text/javascript" src="/bower_components/angular-resource/angular-resource.js"></script>
-    <script type="text/javascript" src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
     <script type="text/javascript" src="/controllers/dlapp.js"></script>
     <script type="text/javascript" src="/controllers/appRoutes.js"></script>
@@ -52,6 +52,8 @@
         </div>
       </nav>
     </div>
+
+    <span us-spinner="{radius:10, width:3, length: 8}" spinner-key="busy-spinner"></span>
     <div ng-view=""></div>
 
     <div class="footer navbar-fixed-bottom">
