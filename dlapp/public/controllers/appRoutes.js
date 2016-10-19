@@ -42,6 +42,10 @@ angular.module('dlapp').config(['$routeProvider', '$locationProvider',
                     controller: 'contactusController'
                 })
 
+                .when('/success', {
+                    templateUrl: 'partials/success'
+                })
+
                 .otherwise({
                     redirectTo: '/'
                 });
