@@ -79,3 +79,7 @@ mongod
 # No DB data
 # ===========
 db/
+
+# Distribution folder
+# ===================
+public/dist/
