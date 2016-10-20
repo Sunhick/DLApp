@@ -21,7 +21,7 @@ angular.module('dlapp').config(['$routeProvider', '$locationProvider',
                     controller: 'loginController'
                 })
 
-                // login page
+                // projects page
                 .when('/projects', {
                     templateUrl: 'partials/projects',
                     controller: 'projectsController'

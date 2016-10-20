@@ -27,7 +27,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+if (app.get('env') == "production") {
+  app.use(express.static(path.join(__dirname, 'public/dist')));
+} else {
+  app.use(express.static(path.join(__dirname, 'public')));
+}
 
 // configure routes
 routes(app);

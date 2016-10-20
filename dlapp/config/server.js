@@ -11,5 +11,7 @@ module.exports = {
         // name: 'mush.js'
     },
 
-    server : { port : process.env.WEB_PORT || 4000 }
+    server : {
+            port : process.env.WEB_PORT || 4000
+    }
 };

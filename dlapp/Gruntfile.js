@@ -14,7 +14,8 @@ module.exports = function(grunt) {
       build: {
         files: {
           'public/dist/js/dlapp.min.js': ['public/controllers/dlapp.js', 'public/controllers/*.js', 'public/filters/*.js']
-        }
+        },
+        tasks: ['jshint', 'uglify']
       }
     },
 
@@ -48,13 +49,35 @@ module.exports = function(grunt) {
         logConcurrentOutput: true
       },
       tasks: ['nodemon', 'watch']
-    }   
+    },
 
+    copy: {
+        main: {
+          files: [
+            { expand: true, 
+              //flatten: true,
+              cwd: 'public/',
+              src: [
+                      'bower_components/jquery/dist/jquery.min.js',
+                      'bower_components/bootstrap/dist/js/bootstrap.min.js',
+                      'bower_components/bootstrap/dist/css/bootstrap.min.css',
+                      'bower_components/angular/angular.min.js',
+                      'bower_components/angular-route/angular-route.min.js',
+                      'bower_components/angular-resource/angular-resource.min.js',
+                      'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+
+                      // copy images
+                      'images/*'
+                    ], 
+              dest: 'public/dist/' },
+          ]}
+        },
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   // grunt.loadNpmTasks('grunt-contrib-watch');
   // grunt.loadNpmTasks('grunt-nodemon');
   // grunt.loadNpmTasks('grunt-concurrent');
@@ -62,7 +85,8 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
           'cssmin', 
           'jshint', 
-          'uglify', 
+          'uglify',
+          'copy',
           // 'concurrent'
         ]);
 

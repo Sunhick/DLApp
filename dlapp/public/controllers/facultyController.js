@@ -16,7 +16,7 @@ angular.module('dlapp').controller('facultyController', ['$http', '$location',
         $http.post("/projects/add", project)
             .then(function(response) {
                 // reset the fields or show successfully added message.
-                $location.path('/success')
+                $location.path("/success");
             });
     };
 }]);
