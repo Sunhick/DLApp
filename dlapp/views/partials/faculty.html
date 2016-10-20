@@ -15,188 +15,189 @@
 
   </div>
 
-  <div class="container" ng-controller="facultyController as faculty">
-    <h2>Faculty Form</h2>
-    <h5> (all fields under this heading are required)</h5>
+   <div class="container" ng-controller="facultyController as faculty">
+        
 
-    <form>
-      <div class="form-group">
-        <label for="Name">*Name:</label>
-        <input type="name" class="form-control" id="name" ng-model="project.fName" placeholder="Enter Name" required>
-      </div>
-      <div class="form-group">
-        <label for="Phone Number">*Number:</label>
-        <input type="name" class="form-control" ng-model="project.phoneNumber" id="name" placeholder="Enter Phone Number" required>
-      </div>
-      <div class="form-group">
-        <label for="Email">*Email:</label>
-        <input type="name" class="form-control" id="name" ng-model="project.fEmail" placeholder="Enter Email" required>
-      </div>
-      <div class="form-group">
-        <label for="Department">*Department:</label>
-        <input type="name" class="form-control" id="name" ng-model="project.fDepartment" placeholder="Enter Department" required>
-      </div>
-       
-       <div class="form-group">
-        <label for="Department">Does the project have focus on Engineering for developing communities:</label>
-      <h5><p><font color="grey"> *Please select one option</font></p></h5>
-      <form action="">
-     <input type="radio" name="option" value="Yes" required> Yes<br>
-     <input type="radio" name="option" value="No" required> No
-   </form>
+            <h2>Faculty Form</h2>
+            <h5> (all fields under this heading are required)</h5>
 
-      <h2>Second Faculty (Optional)</h2>
-      <div class="form-group">
-        <label for="Name">Name:</label>
-        <input type="name" class="form-control" ng-model="project.secName" id="name" placeholder="Enter Name">
-      </div>
-      <div class="form-group">
-        <label for="Phone Number">Number:</label>
-        <input type="name" class="form-control" id="name" ng-model="project.secphoneNumber" placeholder="Enter Phone Number">
-      </div>
-      <div class="form-group">
-        <label for="Email">Email:</label>
-        <input type="name" class="form-control" id="name" ng-model="project.secEmail" placeholder="Enter Email">
-      </div>
-      <div class="form-group">
-        <label for="Department">Department:</label>
-        <input type="name" class="form-control" id="name" ng-model="project.secDepartment" placeholder="Enter Department">
-      </div>
+            <form>
+                <div class="form-group">
+                    <label for="Name">*Name:</label>
+                    <input type="name" class="form-control" id="name" ng-model = "project.fName" placeholder="Enter Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="Phone Number">*Number:</label>
+                    <input type="name" class="form-control" ng-model="project.phoneNumber" id="name" placeholder="Enter Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <label for="Email">*Email:</label>
+                    <input type="name" class="form-control" id="name" ng-model="project.fEmail" placeholder="Enter Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="Department">*Department:</label>
+                    <input type="name" class="form-control" id="name" ng-model="project.fDepartment" placeholder="Enter Department" required>
+                </div>
 
-      <h2>Grad Student / Post Doc (Optional)</h2>
-       <div class="form-group">
-        <label for="Name">Grad Student / Post Doc Name:</label>
-        <input type="name" class="form-control" ng-model="project.gradName" id="name" placeholder="Enter Name">
-      </div>
-      <div class="form-group">
-        <label for="Phone Number">Grad Student / Post Doc Number:</label>
-        <input type="name" class="form-control" ng-model="project.gradPhoneNumber" id="name" placeholder="Enter Phone Number">
-      </div>
-      <div class="form-group">
-        <label for="Email">Grad Student / Post Doc Email:</label>
-        <input type="name" ng-model="project.gradEmail" class="form-control" id="name" placeholder="Enter Email">
-      </div>
+                <div class="form-group">
+                    <label for="Department">Does the project have focus on Engineering for developing communities:</label>
+                    <h5><p><font color="grey">* Please select one option</font></p></h5>
+					<form action="">
+                    <input type="radio" name="option" value="Yes" required> Yes<br>
+                    <input type="radio" name="option" value="No" required> No
+    </div>
+	</form>
 
-      <h2>Apprenticeship Information</h2>
-      <h5> (all fields under this heading are required)</h5>
-      <div class="form-group">
-        <label for="">*Brief note on the Appentiship:</label>
-        <input type="name" ng-model="project.title" class="form-control" id="name" required>
-      </div>
-      <div class="form-group">
-        <label for="Email">*Link to the apprentiship project providing more information to the students:</label>
-        <input type="name" ng-model="project.weblink" class="form-control" id="name" placeholder="Enter Web link" required>
-      </div>
-       <div class="form-group">
-        <label for="Name">*Special Requirements the student should meet (Eg: Specific Courses, Class standings, Work Availability):</label>
-        <input type="name" ng-model="project.specialReq" class="form-control" id="name" required>
-      </div>
-        <div class="form-group">
-        <label for="Name">Only Students from Majors selected will be allowed to apply for the project</label>
-       </div>
-       <div class="multiselect">
-          <div class="selectBox" onclick="showCheckboxes()">
-              <select required>
-                  <option>Select Department</option>
-              </select>
-              <div class="overSelect"></div>
-          </div>
-          <div id="checkboxes">
-              <label for="one"><input type="checkbox" id="one" required/>Aerospace Engineering</label>
-              <label for="two"><input type="checkbox" id="two"/>Applied Mathematics </label>
-              <label for="three"><input type="checkbox" id="three"/>Architectural Engineering</label>
-               <label for="four"><input type="checkbox" id="four"/>Chemical Engineering</label>
-              <label for="five"><input type="checkbox" id="five"/>Chemical and Biological Engineering </label>
-              <label for="six"><input type="checkbox" id="six"/>Civil Engineering</label>
-               <label for="seven"><input type="checkbox" id="seven"/>Computer Science</label>
-              <label for="eight"><input type="checkbox" id="eight"/>Electrical Engineering </label>
-              <label for="nine"><input type="checkbox" id="nine"/>Electrical and Computer Engineering</label>
-              <label for="ten"><input type="checkbox" id="ten"/>Engineering Physics </label>
-              <label for="eleven"><input type="checkbox" id="eleven"/>Environmental Engineering</label>
-               <label for="twelve"><input type="checkbox" id="twelve"/>Engineering Plus</label>
-              <label for="thirteen"><input type="checkbox" id="thirteen"/>Mechanical Engineering </label>
-              <label for="fourteen"><input type="checkbox" id="fourteen"/>Technology Arts and Media</label>
-          </div>
-      </div>
-   </div>
-      <div class="form-group">
-      <label for="Department">Amount of Supervision required/interaction available:</label>
-      <h5><p><font color="grey"> Please select one option</font></p></h5>
-      <form action="">
-     <input type="radio" name="option" value="Yes" required> Very little supervision; student will need to work largely independently<br>
-     <input type="radio" name="option" value="No"> Moderate amount of supervision and interaction with others<br>
-     <input type="radio" name="option" value="No"> Good deal of supervision; student will work as an integral part of a research team
-   </form> 
-   </div>   
+                    <h2>Second Faculty (Optional)</h2>
+                    <div class="form-group">
+                        <label for="Name">Name:</label>
+                        <input type="name" class="form-control" ng-model= "project.secName" id="name" placeholder="Enter Name" >
+                    </div>
+                    <div class="form-group">
+                        <label for="Phone Number">Number:</label>
+                        <input type="name" class="form-control" id="name" ng-model= "project.secphoneNumber" placeholder="Enter Phone Number" >
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email:</label>
+                        <input type="name" class="form-control" id="name" ng-model= "project.secEmail" placeholder="Enter Email" >
+                    </div>
+                    <div class="form-group">
+                        <label for="Department">Department:</label>
+                        <input type="name" class="form-control" id="name" ng-model="project.secDepartment" placeholder="Enter Department" >
+                    </div>
 
-       <div class="form-group">
-        <label for="Department">Supervision provided by:</label>
-        <h5><p><font color="grey"> Please select one option</font></p></h5>
-        <form action="">
-     <input type="radio" name="option" value="Yes" required> Supervision primarily by faculty supervisor<br>
-     <input type="radio" name="option" value="No"> Supervision primarily by graduate students<br>
-     <input type="radio" name="option" value="No">Supervision primarily a combination of faculty and graduate students
-   </form>
-   </div>  
+                    <h2>Grad Student / Post Doc (Optional)</h2>
+                    <div class="form-group">
+                        <label for="Name">Grad Student / Post Doc Name:</label>
+                        <input type="name" class="form-control" ng-model="project.gradName" id="name" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Phone Number">Grad Student / Post Doc Number:</label>
+                        <input type="name" class="form-control" ng-model="project.gradPhoneNumber"id="name" placeholder="Enter Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Grad Student / Post Doc Email:</label>
+                        <input type="name" ng-model="project.gradEmail" class="form-control" id="name" placeholder="Enter Email">
+                    </div>
 
-      <div class="form-group">
-        <label for="Department">Nature of work:</label>
-          <h5><p><font color="grey"> Please select one option</font></p></h5>
-          <form action="">
-     <input type="radio" name="option" value="Yes" required> Nature of work is primarily theoretical, most work on paper/electronic medium<br>
-     <input type="radio" name="option" value="No">  Nature of work is primarily experimental, requiring hands-on work in a lab<br>
-     <input type="radio" name="option" value="No">Nature of work is primarily field based, requiring hands-on work in the field<br>
-      <input type="radio" name="option" value="Yes">Nature of work is primarily computer-related, involving coding/analysis<br>
-     <input type="radio" name="option" value="No">  Nature of work is a combination of several types of work<br>
-     <input type="radio" name="option" value="No">Others, Please Specify
-      <input type="name" class="form-control" id="name">
-   </form>
-   </div>  
-            
-      <div class="form-group">
-        <label for="Department">Amount of prior work conducted in association with this project:</label>
-          <h5><p><font color="grey"> Please select one option</font></p></h5>
-          <input type="radio" name="option" value="Yes" required> No prior work; student will be starting from basic idea<br>
-          <input type="radio" name="option" value="No"> Some prior work; student will build on work of others<br>
-          <input type="radio" name="option" value="No">Well-established body of work; student will refine/improved upon efforts of others<br>
-          <input type="radio" name="option" value="Yes">Others, Please Specify
-          <input type="name" class="form-control" id="name">
-      </div>
+                    <h2>Apprenticeship Information</h2>
+                    <h5> (all fields under this heading are required)</h5>
+                    <div class="form-group">
+                        <label for="">*Brief note on the Appentiship:</label>
+                        <input type="name" ng-model="project.title" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">*Link to the apprentiship project providing more information to the students:</label>
+                        <input type="name" ng-model="project.weblink" class="form-control" id="name" placeholder="Enter Web link" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">*Special Requirements the student should meet (Eg: Specific Courses, Class standings, Work Availability):</label>
+                        <input type="name" ng-model="project.specialReq" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Only Students from Majors selected will be allowed to apply for the project</label>
+                    </div>
+                    <div class="multiselect">
+                        <div class="selectBox" onclick="showCheckboxes()"
+                              
+                            <div class="overSelect"></div>
+                        </div>
+                        <div id="checkboxes">
+                            <label for="one"><input type="checkbox" id="one" required/>Aerospace Engineering</label>
+                            <label for="two"><input type="checkbox" id="two"/>Applied Mathematics </label>
+                            <label for="three"><input type="checkbox" id="three"/>Architectural Engineering</label>
+                            <label for="four"><input type="checkbox" id="four"/>Chemical Engineering</label>
+                            <label for="five"><input type="checkbox" id="five"/>Chemical and Biological Engineering </label>
+                            <label for="six"><input type="checkbox" id="six"/>Civil Engineering</label>
+                            <label for="seven"><input type="checkbox" id="seven"/>Computer Science</label>
+                            <label for="eight"><input type="checkbox" id="eight"/>Electrical Engineering </label>
+                            <label for="nine"><input type="checkbox" id="nine"/>Electrical and Computer Engineering</label>
+                            <label for="ten"><input type="checkbox" id="ten"/>Engineering Physics </label>
+                            <label for="eleven"><input type="checkbox" id="eleven"/>Environmental Engineering</label>
+                            <label for="twelve"><input type="checkbox" id="twelve"/>Engineering Plus</label>
+                            <label for="thirteen"><input type="checkbox" id="thirteen"/>Mechanical Engineering </label>
+                            <label for="fourteen"><input type="checkbox" id="fourteen"/>Technology Arts and Media</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Department">Amount of Supervision required/interaction available:</label>
+                    <h5><p><font color="grey"> Please select one option</font></p></h5>
+                    <form action="">
+                    <input type="radio" name="option" value="Yes" required> Very little supervision; student will need to work largely independently<br>
+                    <input type="radio" name="option" value="No"> Moderate amount of supervision and interaction with others<br>
+                    <input type="radio" name="option" value="No"> Good deal of supervision; student will work as an integral part of a research team
+		</form>
+                </div>   
 
-      <h2>Finances</h2>
-      <h5> (all fields under this heading are required)</h5>
-       <h5><p><font color="grey"> Please select one option</font></p></h5>
-      <div class="form-group">
-        <label for="Name">*What speed type will you use for your 50% match of the funding :</label>
-        <input type="name" class="form-control" id="name" required>
-      </div>
-      <div class="form-group">
-       <label for="Name">OR</label>
-       </div>
-      <div class="checkbox">
-        <label><input type="checkbox" required> Not Sure</label>
-      </div>
-      <div class="form-group">
-        <label for="Name">*Accounting contact for your Project:</label>
-        <input type="name" class="form-control" id="name" required>
-      </div>
+                <div class="form-group">
+                    <label for="Department">Supervision provided by:</label>
+                    <h5><p><font color="grey"> Please select one option</font></p></h5>
+                    <form action="">
+                    <input type="radio" name="option" value="Yes" required> Supervision primarily by faculty supervisor<br>
+                    <input type="radio" name="option" value="No"> Supervision primarily by graduate students<br>
+                    <input type="radio" name="option" value="No">Supervision primarily a combination of faculty and graduate students
+                </form>
+                </div>  
 
-      <h2>Others</h2>
-      <h5> (all fields under this heading are required)</h5>
-      <div class="form-group">
-        <label for="Department">*Have you supervised a discovery learning apprentice in the past(This question is intended to the faculty advisor not the grad student or the post doc):</label>
-        <h5><p><font color="grey"> Please select one option</font></p></h5>
-        <form action="">
-        <input type="radio" name="option" value="Yes" required> Yes<br>
-        <input type="radio" name="option" value="No"> No
-   </form>
-      </div>   
+                <div class="form-group">
+                    <label for="Department">Nature of work:</label>
+                    <h5><p><font color="grey"> Please select one option</font></p></h5>
+                    <form action="">
+                    <input type="radio" name="option" value="Yes" required> Nature of work is primarily theoretical, most work on paper/electronic medium<br>
+                    <input type="radio" name="option" value="No">  Nature of work is primarily experimental, requiring hands-on work in a lab<br>
+                    <input type="radio" name="option" value="No">Nature of work is primarily field based, requiring hands-on work in the field<br>
+                    <input type="radio" name="option" value="Yes">Nature of work is primarily computer-related, involving coding/analysis<br>
+                    <input type="radio" name="option" value="No">  Nature of work is a combination of several types of work<br>
+                    <input type="radio" name="option" value="No">Others, Please Specify
+                    <input type="name" class="form-control" id="name">
+				</form>
+                </div>  
+
+                <div class="form-group">
+                    <label for="Department">Amount of prior work conducted in association with this project:</label>
+                    <h5><p><font color="grey"> Please select one option</font></p></h5>
+                    <input type="radio" name="option" value="Yes" required> No prior work; student will be starting from basic idea<br>
+                    <input type="radio" name="option" value="No"> Some prior work; student will build on work of others<br>
+                    <input type="radio" name="option" value="No">Well-established body of work; student will refine/improved upon efforts of others<br>
+                    <input type="radio" name="option" value="Yes">Others, Please Specify
+                    <input type="name" class="form-control" id="name">
+                </div>
+
+                <h2>Finances</h2>
+                <h5> (all fields under this heading are required)</h5>
+                <h5><p><font color="grey"> Please select one option</font></p></h5>
+                <div class="form-group">
+                    <label for="Name">* What speed type will you use for your 50% match of the funding :</label>
+                    <input type="name" class="form-control" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="Name">OR</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" required> Not Sure</label>
+                </div>
+                <div class="form-group">
+                    <label for="Name">*Accounting contact for your Project:</label>
+                    <input type="name" class="form-control" id="name" required>
+                </div>
+
+                <h2>Others</h2>
+                <h5> (all fields under this heading are required)</h5>
+                <div class="form-group">
+                    <label for="Department">* Have you supervised a discovery learning apprentice in the past(This question is intended to the faculty advisor not the grad student or the post doc):</label>
+                    <h5><p><font color="grey"> Please select one option</font></p></h5>
+                    <form action="">
+                    <input type="radio" name="option" value="Yes" required> Yes<br>
+                    <input type="radio" name="option" value="No"> No
+                </form>
+                </div>   
 
 
-     <div class="form-group">
-        <h5><p><font color="grey">Please ensure that all information is correct before submitting your project. You will not be able to return to this page to make changes or corrections. Once you are sure everything is correct, you may proceed.</font></p></h5>
-      <div class="checkbox">
-      <button type="submit" ng-disabled="" class="btn btn-primary" ng-click="faculty.submit(project)">Submit</button>
-      </div>
-    </form>
-  </div>
+                <div class="form-group">
+                    <h5><p><font color="grey">Please ensure that all information is correct before submitting your project. You will not be able to return to this page to make changes or corrections. Once you are sure everything is correct, you may proceed.</font></p></h5>
+                    <div class= "checkbox">
+                    <button type="submit" class="btn btn-primary" ng-click="faculty.submit(project)">Submit</button>
+                </div>
+            </form>
+        </div>
