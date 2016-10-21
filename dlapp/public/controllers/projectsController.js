@@ -32,5 +32,5 @@ angular.module('dlapp').controller('projectsController', ['$http', function($htt
 
     self.setSelection = function(project) {
         self.selectedProject = project;
-    }
+    };
 }]);

@@ -27,7 +27,8 @@
                 </tr>
               </thead>
               <tbody ng-repeat="project in prCtrl.projects">
-                <tr class='clickable-row' data-toggle="modal" data-target="#moreDetails" ng-click="prCtrl.setSelection(project)">
+                <tr class="clickable-row tr-selectable" data-toggle="modal" data-target="#moreDetails"
+                    ng-click="prCtrl.setSelection(project)">
                   <td>{{project.title}}</td>
                   <td>
                     {{project.fName}}<br/>
