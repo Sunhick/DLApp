@@ -27,7 +27,7 @@
                 </tr>
               </thead>
               <tbody ng-repeat="project in prCtrl.projects">
-                <tr class='clickable-row' data-toggle="modal" data-target="#moreDetails">
+                <tr class='clickable-row' data-toggle="modal" data-target="#moreDetails" ng-click="prCtrl.setSelection(project)">
                   <td>{{project.title}}</td>
                   <td>
                     {{project.fName}}<br/>
@@ -48,19 +48,36 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header"> 
-        <span id="myModalLabel" style="margin-left:20px;"><font size="+2"><b>More details</b></font></span> </div>
+          <span id="myModalLabel" style="margin-left:20px;">
+            <font size="+1"><b>Project: {{prCtrl.selectedProject.title}}</b></font>
+          </span> 
+        </div>
         <div class="modal-body">
-          <form class="form-horizontal" method="post" action="InsertPassportReminderSrvlt?idEmployee=1" >
-            <fieldset id="modal_form">
-            <p>
-              Add details here
-            </p>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
-            </div>
-          </fieldset>
-        </form>
+          <p>
+            <label>Name:</label>
+            {{prCtrl.selectedProject.fName}} <br/>
 
+            <label>Email:</label> 
+            {{prCtrl.selectedProject.fEmail}} <br/>
+
+            <label>Tel:</label> 
+            {{prCtrl.selectedProject.phoneNumber | tel}} <br/>
+
+            <label>Department:</label> 
+            {{prCtrl.selectedProject.fDepartment}}
+            <hr/>
+
+            <label>Description: </label> <br/>
+            {{prCtrl.selectedProject.desc}}
+            <hr/>
+
+            <label>Special Requirements: </label> <br/>
+            {{prCtrl.selectedProject.specialReq}}
+          </p>
+        </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
       </div>
     </div>
   </div>
