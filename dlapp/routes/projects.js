@@ -10,7 +10,7 @@ var Project = require("../models/projects")
 module.exports = function(router) {
     // add project 
     router.post("/projects/add", function(req, res, next) {
-        console.log("got request!" + req.body.name);
+        console.log("got request!" + req.body);
         
         var prj = new Project(req.body);
 
@@ -38,5 +38,4 @@ module.exports = function(router) {
             res.send(projects);
         });
     });
-    // module.exports = router;
 }
