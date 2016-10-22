@@ -7,41 +7,31 @@
 <div class="section" ng-controller="projectsController as prCtrl">
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
-        <select id="pfilter" name="pfilter">
-          <option value="All" default>All projects</option>
-          <option value="Dept">By departments</option>
-        </select>
-      </div>
-    </div>
-    <div class="row">
       <div class="col-md-12">
-          <span>
-            <table class="table table-bordered table-hover specialCollapse">
-              <thead>
-                <tr>
-                  <th>Project Name</th>
-                  <th>Contact</th>
-                  <th>Description</th>
-                  <th>Special requirements</th>
-                </tr>
-              </thead>
-              <tbody ng-repeat="project in prCtrl.projects">
-                <tr class="clickable-row tr-selectable" data-toggle="modal" data-target="#moreDetails"
-                    ng-click="prCtrl.setSelection(project)">
-                  <td>{{project.title}}</td>
-                  <td>
-                    {{project.fName}}<br/>
-                    {{project.fEmail}}<br/>
-                    {{project.phoneNumber | tel}}<br/>
-                    {{project.fDepartment}}
-                  </td>
-                  <td>{{project.desc}}</td>
-                  <td>{{project.specialReq}}</td>
-                </tr>
-              </tbody>
-            </table>
-          </span>
+        <table id = "example" datatable="ng" class="table table-bordered table-hover specialCollapse">
+          <thead>
+            <tr>
+              <th>Project Name</th>
+              <th>Contact</th>
+              <th>Description</th>
+              <th>Special requirements</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="clickable-row tr-selectable" data-toggle="modal" data-target="#moreDetails"
+                ng-repeat="project in prCtrl.projects" ng-click="prCtrl.setSelection(project)">
+              <td>{{project.title}}</td>
+              <td>
+                {{project.fName}}<br/>
+                {{project.fEmail}}<br/>
+                {{project.phoneNumber | tel}}<br/>
+                {{project.fDepartment}}
+              </td>
+              <td>{{project.desc}}</td>
+              <td>{{project.specialReq}}</td>
+            </tr>
+          </tbody>
+        </table>
     </div>
   </div>
 
@@ -78,7 +68,7 @@
         </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
