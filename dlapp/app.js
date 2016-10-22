@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 if (app.get('env') == "production") {
-  app.use(express.static(path.join(__dirname, 'public/dist')));
+  app.use(express.static(path.join(__dirname, 'dist')));
 } else {
   app.use(express.static(path.join(__dirname, 'public')));
 }
