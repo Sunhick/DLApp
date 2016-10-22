@@ -13,7 +13,7 @@ module.exports = function(grunt) {
     uglify: {
       build: {
         files: {
-          'public/dist/js/dlapp.min.js': ['public/controllers/dlapp.js', 'public/controllers/*.js', 'public/filters/*.js']
+          'dist/js/dlapp.min.js': ['public/controllers/dlapp.js', 'public/controllers/*.js', 'public/filters/*.js']
         },
         tasks: ['jshint', 'uglify']
       }
@@ -22,7 +22,7 @@ module.exports = function(grunt) {
     cssmin: {
       build: {
         files: {
-          'public/dist/css/style.min.css': 'public/stylesheets/*.css'
+          'dist/css/style.min.css': 'public/stylesheets/*.css'
         }
       }
     },
@@ -63,7 +63,7 @@ module.exports = function(grunt) {
                       // copy images
                       'images/*'
                     ], 
-              dest: 'public/dist/' },
+              dest: 'dist/' },
           ]}
         },
   });
