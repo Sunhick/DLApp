@@ -13,7 +13,20 @@ module.exports = function(grunt) {
     uglify: {
       build: {
         files: {
-          'dist/js/dlapp.min.js': ['public/controllers/dlapp.js', 'public/controllers/*.js', 'public/filters/*.js']
+          'dist/js/dlapp.min.js': [
+              'public/bower_components/jquery/dist/jquery.min.js',
+              'public/bower_components/bootstrap/dist/js/bootstrap.min.js',
+              'public/bower_components/angular/angular.min.js',
+              'public/bower_components/angular-route/angular-route.min.js',
+              'public/bower_components/angular-resource/angular-resource.min.js',
+              'public/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+              'public/bower_components/datatables.net/js/jquery.dataTables.min.js',
+              'public/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js',
+              'public/bower_components/angular-datatables/dist/angular-datatables.min.js',
+              'public/controllers/dlapp.js', 
+              'public/controllers/*.js', 
+              'public/filters/*.js'
+              ]
         },
         tasks: ['jshint', 'uglify']
       }
@@ -22,7 +35,11 @@ module.exports = function(grunt) {
     cssmin: {
       build: {
         files: {
-          'dist/css/style.min.css': 'public/stylesheets/*.css'
+          'dist/css/style.min.css': [
+              'public/stylesheets/*.css',
+              'public/bower_components/bootstrap/dist/css/bootstrap.min.css',
+              'public//bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css',
+              ]
         }
       }
     },
@@ -52,20 +69,47 @@ module.exports = function(grunt) {
     },
 
     copy: {
-        main: {
+        images: {
           files: [
             { expand: true, 
               //flatten: true,
               cwd: 'public/',
               src: [
-                      'bower_components/*',
-
                       // copy images
                       'images/*'
                     ], 
               dest: 'dist/' },
+          ]},
+
+          fonts: {
+            files: [
+            { expand: true, 
+              flatten: true,
+              cwd: 'public/',
+              src: [
+                      'bower_components/bootstrap/fonts/*',
+                      'bower_components/font-awesome/fonts/*',
+                    ], 
+              dest: 'dist/fonts' },
           ]}
         },
+
+    // copy: {
+    //     main: {
+    //       files: [
+    //         { expand: true, 
+    //           //flatten: true,
+    //           cwd: 'public/',
+    //           src: [
+    //                   'bower_components/**/*.min.js',
+    //                   'bower_components/**/*.min.css',
+
+    //                   // copy images
+    //                   'images/*'
+    //                 ], 
+    //           dest: 'dist/' },
+    //       ]}
+    //     },
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
