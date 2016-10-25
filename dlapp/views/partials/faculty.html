@@ -17,7 +17,8 @@
     <h2>Faculty Form</h2>
     <h5> (all fields under this heading are required)</h5>
 
-     <form name="Faculty">
+    <form ng-submit="faculty.submit(project)"> 
+      <form name="Faculty">
         <div class="form-group">
             <label for="Name">*Name:</label>
             <input type="text" class="form-control" name="fName" id="name" ng-model = "project.fName" placeholder="Enter Name" required>
