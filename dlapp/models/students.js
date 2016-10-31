@@ -27,7 +27,7 @@ var studentSchema = new Schema({
     stateBoulder: String,
     zipBoulder: Number,
     countryBoulder: String,
-    phoneNumerBouler: String,
+    phoneNumberBoulder: String,
     emailBoulder: String,
     addressLine1Summer: String,
     addressLine2Summer: String,

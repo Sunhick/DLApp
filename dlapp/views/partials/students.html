@@ -54,35 +54,18 @@
                         <label class="radio-inline"><input type="radio" name="origin" value="Yes" ng-model="data.origin" required>Yes</label>
                         <label class="radio-inline"><input type="radio" name="origin" value="No" ng-model="data.origin" required>No</label>
                         <label class="radio-inline"><input type="radio" name="origin" value="I do not wish to provide this information" ng-model="data.origin" required>I do not wish to provide this information</label>
-                        <p ng-show="Student.gender.$error.required" style="color:red;font-size: 10px;" > Origin Required! </p>
+                        <p ng-show="Student.origin.$error.required" style="color:red;font-size: 10px;" > Origin Required! </p>
                   </div>
                   <div class="panel-body col-md-12">
                     <label for="selectRace">*Please check your race (select all that apply):</label>
                   </div>
+                  <div class="form-group checkbox" ng-repeat="option in options">                    
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
+                     <input type="checkbox" name="race" ng-model="option.value">{{option.name}}</label>                  
+                  </div>
 
-                  <div class="checkbox">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="selectRace" value="American Indian or Alaskan Native" ng-model="data.race1" required>American Indian or Alaskan Native</label>
-                  </div>
-                  <div class="checkbox">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="selectRace" value="Black or African-American" ng-model="data.race2" required>Black or African-American</label>
-                  </div>
-                  <div class="checkbox">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="selectRace" value="Native Hawaiian or other Pacific Islander" ng-model="data.race3" required>Native Hawaiian or other Pacific Islander</label>
-                  </div>
-                  <div class="checkbox">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="selectRace" value="Asian" ng-model="data.race4" required>Asian</label>
-                  </div>
-                  <div class="checkbox">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="selectRace" value="White" ng-model="data.race5" required>White</label>
-                  </div>
-                   <div class="checkbox">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="selectRace" value="Other" ng-model="data.race6" required>Other</label>
-                  </div>
-                  <div class="checkbox">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="selectRace" value="Do Not Wish to Provide" ng-model="data.race7" required>Do Not Wish to Provide</label>
-                  </div>
                   <div>
-                    <p ng-show="Student.selectRace.$error.required" style="color:red;font-size: 10px;" > &nbsp;&nbsp;&nbsp;Selection of Race Required! </p>
+                    <p ng-show="isRaceInvalid()" style="color:red;font-size: 10px;" > &nbsp;&nbsp;&nbsp;Selection of Race Required! </p>
                   </div>
 
               <div class="panel-heading">Boulder Contact Information</div>
@@ -372,7 +355,7 @@
 
                     <div class="panel-body col-md-2">
                           <label for="phoneNumber">*Phone Number:</label>
-                          <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" ng-model="data.phoneNumerBouler" ng-minlength="10" ng-maxlength="10" required>
+                          <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" ng-model="data.phoneNumberBoulder" ng-minlength="10" ng-maxlength="10" required>
                           <p ng-show="Student.phoneNumber.$error.required" style="color:red;font-size: 10px;" >Phone Number Required! </p>
                           <p ng-show="Student.phoneNumber.$error.minlength" style="color:red;font-size: 10px;" >Phone Number should be 10 digts! </p>
                           <p ng-show="Student.phoneNumber.$error.maxlength" style="color:red;font-size: 10px;" >Phone Number should only be 10 digts! </p>
@@ -386,6 +369,11 @@
               </div>
               <div class="panel-heading">Summer Contact Information (if different)</div>
               <div class="panel-body">
+
+                    <div class="checkbox">
+                        &nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="sameAddress" value="yes" ng-model="data.sameAddress" ng-change="populateSummerAddress(data)">Same as Above</label>
+                    </div>
+
                     <div class="panel-body col-md-6">
                         <label for="addressLine1">*Address Line 1:</label>
                         <input type="text" class="form-control" name="sum_addressLine1" id="addressLine1" ng-model="data.addressLine1Summer" required>
