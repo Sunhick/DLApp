@@ -205,7 +205,7 @@
 
         <div class="form-group">
             <h5><p><font color="grey">Please ensure that all information is correct before submitting your project. You will not be able to return to this page to make changes or corrections. Once you are sure everything is correct, you may proceed.</font></p></h5>
-            <button ng-disabled="Faculty.fName.$invalid && Faculty.fphoneNumber.$invalid && Faculty.fEmail.$invalid && Faculty.fDepartment.$invalid && Faculty.title.$invalid && Faculty.weblink.$invalid && Faculty.specialReq.$invalid && Faculty.desc.$invalid" type="submit" class="btn btn-primary" ng-click="faculty.submit(project)" >Submit</button>
+            <button ng-disabled="Faculty.fName.$invalid || Faculty.fphoneNumber.$invalid || Faculty.fEmail.$invalid || Faculty.fDepartment.$invalid || Faculty.title.$invalid || Faculty.weblink.$invalid || Faculty.specialReq.$invalid || Faculty.desc.$invalid || Faculty.focus.$invalid" type="submit" class="btn btn-primary" ng-click="faculty.submit(project)" >Submit</button>
         </div>
     </form>
 </div>
