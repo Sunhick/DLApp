@@ -4,9 +4,21 @@
 *
 *  Copyright (c) 2016. University of Colorado, boulder
 */
-angular.module('dlapp').controller('studentController',['$scope','$resource',function($scope,$resource) {
+angular.module('dlapp').controller('studentController',['$scope','$resource', 'ListProjects1', function($scope,$resource, ListProjects1) {
     "use strict";
     var Student = $resource('/student/add');
+    var self = this;
+    self.projects=[];
+    $scope.title=[];
+
+    ListProjects1.getProjectsList().then(function(data){
+      self.projects = data;
+      for (var i=0 ; i < self.projects.length; i++){
+        $scope.title[i] = self.projects[i].title;
+        console.log($scope.title[i]);
+      }
+      console.log($scope.title);
+    })
 
     $scope.options = [{
 	    name: 'American Indian or Alaskan Native',
@@ -66,7 +78,7 @@ angular.module('dlapp').controller('studentController',['$scope','$resource',fun
     };
 
     $scope.addStudent = function(data) {
-    	//Formatting race values selected 
+    	//Formatting race values selected
     	var i;
     	var race_values='';
 
@@ -88,4 +100,17 @@ angular.module('dlapp').controller('studentController',['$scope','$resource',fun
             console.log('Student added..');
          });
     };
+}])
+
+.factory('ListProjects1', ['$http',
+function ($http) {
+  return {
+    getProjectsList: function(){
+      return $http.get("/projects/list").then(function(response) {
+        console.log(response.data);
+        return response.data
+      });
+    }
+  }
+
 }]);
