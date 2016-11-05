@@ -21,7 +21,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <form name="Student" ng-controller="studentController">
+          <form name="Student" ng-app="dlapp" ng-controller="studentController">
             <div class="panel panel-default">
               <div class="panel-heading">Demographic Information</div>
               <div class="row">
@@ -59,9 +59,9 @@
                   <div class="panel-body col-md-12">
                     <label for="selectRace">*Please check your race (select all that apply):</label>
                   </div>
-                  <div class="form-group checkbox" ng-repeat="option in options">                    
+                  <div class="form-group checkbox" ng-repeat="option in options">
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
-                     <input type="checkbox" name="race" ng-model="option.value">{{option.name}}</label>                  
+                     <input type="checkbox" name="race" ng-model="option.value">{{option.name}}</label>
                   </div>
 
                   <div>
@@ -791,21 +791,25 @@
                       <label for="projectInterest"> 1 is most interested, 5 is moderately interested. For full listing of projects, look <a href="http://localhost:4000/projects" >here</a>. </label>
                     </div>
 
+                    <div>
                     <div class="panel-body col-md-2">
                         <label for="firstChoice">*First Preference</label>
                     </div>
                     <div class="panel-body col-md-10">
-                        <select class="form-control col-md-3" id="listProjects" name="listProjects">
-                          <option value="selectProject" ng.model="data.firstChoice">Please select project</option>
-                        </select>
+                      <select class="form-control col-md-3" id="firstChoice" name="firstChoice" ng-model="data.firstChoice" ng-options="title for title in title" required>
+                        <option value="">Please select project</option>
+                      </select>
+                      <p ng-show="Student.firstChoice.$error.required" style="color:red;font-size: 10px;" >First Preference Required! </p>
+                      <span
                     </div>
+                  </div>
 
                     <div class="panel-body col-md-2">
                         <label for="secondChoice">Second Preference</label>
                     </div>
                     <div class="panel-body col-md-10">
-                        <select class="form-control col-md-3" id="listProjects" name="listProjects">
-                          <option value="selectProject" ng.model="data.secondChoice">Please select project</option>
+                        <select class="form-control col-md-3" id="secondChoice" name="secondChoice" ng-model="data.secondChoice" ng-options="title for title in title">
+                          <option value="">Please select project</option>
                         </select>
                     </div>
 
@@ -813,8 +817,8 @@
                         <label for="thirdChoice">Third Preference</label>
                     </div>
                     <div class="panel-body col-md-10">
-                        <select class="form-control col-md-3" id="listProjects" name="listProjects">
-                          <option value="selectProject" ng-model="data.thirdChoice">Please select project</option>
+                        <select class="form-control col-md-3" id="thirdChoice" name="thirdChoice" ng-model="data.thirdChoice" ng-options="title for title in title">
+                          <option value="" >Please select project</option>
                         </select>
                     </div>
 
@@ -822,8 +826,8 @@
                         <label for="fourthChoice">Fourth Preference</label>
                     </div>
                     <div class="panel-body col-md-10">
-                        <select class="form-control col-md-3" id="listProjects" name="listProjects">
-                          <option value="selectProject" ng-model="data.fourthChoice">Please select project</option>
+                        <select class="form-control col-md-3" id="fourthChoice" name="fourthChoice" ng-model="data.fourthChoice" ng-options="title for title in title">
+                          <option value="" >Please select project</option>
                         </select>
                     </div>
 
@@ -831,8 +835,8 @@
                         <label for="fifthChoice">Fifth Preference</label>
                     </div>
                     <div class="panel-body col-md-10">
-                        <select class="form-control col-md-3" id="listProjects" name="listProjects">
-                          <option value="selectProject" ng-model="data.fifthChoice">Please select project</option>
+                        <select class="form-control col-md-3" id="fifthChoice" name="fifthChoice" ng-model="data.fifthChoice" ng-options="title for title in title">
+                          <option value="">Please select project</option>
                         </select>
                     </div>
 
