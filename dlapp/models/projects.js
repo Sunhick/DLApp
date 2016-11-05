@@ -52,7 +52,7 @@ var projectSchema = new Schema({
     //other
     pastApprentice: Boolean
 });
-       
+
 var Project = mongoose.model('Project', projectSchema);
 
 module.exports = Project;
