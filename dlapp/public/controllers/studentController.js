@@ -31,7 +31,7 @@ angular.module('dlapp').controller('studentController',['$scope','$resource',fun
 	    value: false
 	  }];
 
-	 $scope.isRaceInvalid = function(){
+	 $scope.isRaceInvalid = function() {
 		var i;
     	var raceInvalid = true;
     	for(i=0 ; i < $scope.options.length; i++){
@@ -43,7 +43,7 @@ angular.module('dlapp').controller('studentController',['$scope','$resource',fun
     	 return raceInvalid;
 	};
 
-	$scope.populateSummerAddress = function(data){
+	$scope.populateSummerAddress = function(data) {
     	if(data.sameAddress){
     		$scope.data.addressLine1Summer = data.addressLine1Boulder;
     		$scope.data.addressLine2Summer = data.addressLine2Boulder;
@@ -63,7 +63,7 @@ angular.module('dlapp').controller('studentController',['$scope','$resource',fun
     		$scope.data.phoneNumberSummer = '';
     		$scope.data.emailSummer = '';
     	}
-    }
+    };
 
     $scope.addStudent = function(data) {
     	//Formatting race values selected 
@@ -73,7 +73,7 @@ angular.module('dlapp').controller('studentController',['$scope','$resource',fun
     	for(i=0 ; i < $scope.options.length; i++){
 			if($scope.options[i].value) {
 				//alert($scope.options[i].name);
-    	  		if(race_values != ''){
+    	  		if(race_values !== ''){
     	  			race_values = race_values +','+ $scope.options[i].name;
     	  		} else {
     	  			race_values = $scope.options[i].name;
