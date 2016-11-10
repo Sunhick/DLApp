@@ -2,13 +2,56 @@
   <div class="well">
     <h4 class="text-center">Automated assignment of Students to Projects</h4>
   </div>
-  <pre>Click on edit to override assignments manually</pre>
+  <pre class="bg-success">Click on edit to override assignments manually</pre>
 </div>
 
 <div class="section" ng-controller="matchController as mCtrl">
   <div class="container">
     <div class="row">
-      <p>{{mCtrl.message}}</p>
+        <div class="col-md-12">
+          <table id = "example" datatable="ng" class="table table-bordered table-hover specialCollapse">
+            <thead>
+              <tr>
+                <th>Student Name</th>
+                <th>Project-1</th>
+                <th>Project-2</th>
+                <th>Project-3</th>
+                <th>Project-4</th>
+                <th>Project-5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="clickable-row" ng-repeat="match in mCtrl.matches">
+                <td>{{match.studentName}}</td>
+                <td>
+                  <select>
+                    <option>{{match.project1}}</option>
+                  </select>
+                </td>
+                <td>
+                  <select>
+                    <option>{{match.project2}}</option>
+                  </select>
+                </td>
+                <td>
+                  <select>
+                    <option>{{match.project3}}</option>
+                  </select>
+                </td>
+                <td>
+                  <select>
+                    <option>{{match.project4}}</option>
+                  </select>
+                </td>
+                <td>
+                  <select>
+                    <option>{{match.project5}}</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
     </div>
   </div>
 </div>

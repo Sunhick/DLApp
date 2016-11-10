@@ -48,7 +48,7 @@ function ($http) {
     getProjectsList: function(){
       return $http.get("/projects/list").then(function(response) {
         //console.log(response.data);
-        return response.data
+        return response.data;
       });
     }
   }
