@@ -46,6 +46,11 @@ angular.module('dlapp').config(['$routeProvider', '$locationProvider',
                     templateUrl: 'partials/success'
                 })
 
+                .when('/match', {
+                    templateUrl: 'partials/match',
+                    controller: 'matchController'
+                })
+
                 .otherwise({
                     redirectTo: '/'
                 });

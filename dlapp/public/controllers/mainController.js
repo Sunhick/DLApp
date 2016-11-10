@@ -13,6 +13,7 @@ angular.module('dlapp').controller('mainController', ['$uibModal', function($mod
         { name: "Students", link: "/students" },
         { name: "Faculty", link:"/faculty" },
         { name: "Projects", link:"/projects" },
+        { name: "Match", link:"/match"},
         { name: "Contact Us", link:"/contactus" }
     ];
 
