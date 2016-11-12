@@ -2,7 +2,7 @@
   <div class="well">
     <h4 class="text-center">Automated assignment of Students to Projects</h4>
   </div>
-  <pre class="bg-success">Click on edit to override assignments manually</pre>
+  <pre class="bg-success">Click on entry to edit the assignment manually</pre>
 </div>
 
 <div class="section" ng-controller="matchController as mCtrl">
@@ -21,7 +21,7 @@
                   ng-repeat="match in mCtrl.matches" ng-click="mCtrl.setSelection(match)">
                 <td>{{match.studentName}}</td>
                 <td>
-                  {{match.project1}}
+                  {{match.assigned}}
                 </td>
               </tr>
             </tbody>
@@ -44,19 +44,18 @@
             {{mCtrl.selectedStudent.studentName}} <br/><br/>
             
             <label>Selected Project: </label>
-            <span ng-bind="radioModel"></span> <br/><br/>
+            <span>{{mCtrl.tempAssigned}}</span> <br/><br/>
             
             <label>Project Preferences:</label>
             <div class="btn-group">
-              <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Project-1'" uncheckable>Project-1</label>
-              <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Project-2'" uncheckable>Project-2</label>
-              <label ng-disabled="true" class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Project-3'" uib-uncheckable="uncheckable">Project-3</label>
+              <label class="btn btn-primary" ng-model="mCtrl.tempAssigned" uib-btn-radio="'Project-1'" uncheckable>Project-1</label>
+              <label class="btn btn-primary" ng-model="mCtrl.tempAssigned" uib-btn-radio="'Project-2'" uncheckable>Project-2</label>
+              <label ng-disabled="true" class="btn btn-primary" ng-model="mCtrl.tempAssigned" uib-btn-radio="'Project-3'" uib-uncheckable="uncheckable">Project-3</label>
             </div>
 
             <br/><br/>
             <label>Select from the list:</label>
-            <select ng-model="radioModel">
-              <option default>--</option>
+            <select ng-model="mCtrl.tempAssigned">
               <option>Project-1</option>
               <option>Project-2</option>
               <option>Project-3</option>
@@ -68,7 +67,8 @@
         </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="mCtrl.selectedStudent.assigned=mCtrl.tempAssigned">Save</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>
