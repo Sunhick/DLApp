@@ -50,4 +50,8 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
             return response.data;
         });
     };
+
+    self.setSelection = function(student) {
+        self.selectedStudent = student;
+    };
 }]);

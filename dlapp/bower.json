@@ -24,6 +24,8 @@
     "angular-spinner": "^0.8.1",
     "angular-datatables": "^0.5.5",
     "datatables.net": "^1.10.12",
-    "datatables.net-bs": "^1.10.12"
+    "datatables.net-bs": "^1.10.12",
+    "angular-bootstrap-toggle": "^0.1.2",
+    "bootstrap-toggle": "^2.2.2"
   }
 }

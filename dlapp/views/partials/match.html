@@ -13,44 +13,62 @@
             <thead>
               <tr>
                 <th>Student Name</th>
-                <th>Project-1</th>
-                <th>Project-2</th>
-                <th>Project-3</th>
-                <th>Project-4</th>
-                <th>Project-5</th>
+                <th>Project Name</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="clickable-row" ng-repeat="match in mCtrl.matches">
+              <tr class="clickable-row tr-selectable" data-toggle="modal" data-target="#moreDetails"
+                  ng-repeat="match in mCtrl.matches" ng-click="mCtrl.setSelection(match)">
                 <td>{{match.studentName}}</td>
                 <td>
-                  <select>
-                    <option>{{match.project1}}</option>
-                  </select>
-                </td>
-                <td>
-                  <select>
-                    <option>{{match.project2}}</option>
-                  </select>
-                </td>
-                <td>
-                  <select>
-                    <option>{{match.project3}}</option>
-                  </select>
-                </td>
-                <td>
-                  <select>
-                    <option>{{match.project4}}</option>
-                  </select>
-                </td>
-                <td>
-                  <select>
-                    <option>{{match.project5}}</option>
-                  </select>
+                  {{match.project1}}
                 </td>
               </tr>
             </tbody>
           </table>
+    </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="moreDetails" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header"> 
+          <span id="myModalLabel" style="margin-left:20px;">
+            <font size="+1"><b>Change project assignment</b></font>
+          </span> 
+        </div>
+        <div class="modal-body">
+          <p>
+            <label>Student Name: </label>
+            {{mCtrl.selectedStudent.studentName}} <br/><br/>
+            
+            <label>Selected Project: </label>
+            <span ng-bind="radioModel"></span> <br/><br/>
+            
+            <label>Project Preferences:</label>
+            <div class="btn-group">
+              <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Project-1'" uncheckable>Project-1</label>
+              <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Project-2'" uncheckable>Project-2</label>
+              <label ng-disabled="true" class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Project-3'" uib-uncheckable="uncheckable">Project-3</label>
+            </div>
+
+            <br/><br/>
+            <label>Select from the list:</label>
+            <select ng-model="radioModel">
+              <option default>--</option>
+              <option>Project-1</option>
+              <option>Project-2</option>
+              <option>Project-3</option>
+              <option>Project-4</option>
+              <option>Project-5</option>
+              <option>Project-6</option>
+            </select>
+          </p>
+        </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
