@@ -95,7 +95,13 @@
         </div>
 
         <div class="form-group">
-            <label for="Email">*Link to the apprentiship project providing more information to the students:</label>
+            <label for="">*Number of Students Needed for the project:</label>
+            <input type="text" name="title" ng-model="project.number" class="form-control" id="name" required>
+            <p ng-show="Faculty.number.$error.required" style="color:red;font-size: 10px;" >Please enter a number </p>
+        </div>
+
+        <div class="form-group">
+            <label for="Email">*Link to the apprenticeship project providing more information to the students:</label>
             <input type="text" name="weblink" ng-model="project.weblink" class="form-control" id="name" required>
             <p ng-show="Faculty.weblink.$error.required" style="color:red;font-size: 10px;" >Please enter link </p>
         </div>
