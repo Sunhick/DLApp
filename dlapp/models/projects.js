@@ -40,6 +40,8 @@ var projectSchema = new Schema({
     number: String,
     weblink: String,
     specialReq: String,
+    gpa: String,
+    hours: String,    
     desc: String,
     areas: [String],
     supervisionAmt: String,
