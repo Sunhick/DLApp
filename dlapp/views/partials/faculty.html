@@ -96,7 +96,7 @@
 
         <div class="form-group">
             <label for="">*Number of Students Needed for the project:</label>
-            <input type="text" name="title" ng-model="project.number" class="form-control" id="name" required>
+            <input type="text" name="number" ng-model="project.number" class="form-control" id="name" required>
             <p ng-show="Faculty.number.$error.required" style="color:red;font-size: 10px;" >Please enter a number </p>
         </div>
 
@@ -123,20 +123,20 @@
         </div>
         <div class="multiselect">
             <div id="checkboxes">
-                <label for="one"><input type="checkbox" name="major" ng-model="project.areas.asen" id="one" />Aerospace Engineering</label>
-                <label for="two"><input type="checkbox"  name="major" ng-model="project.areas.amath" id="two"/>Applied Mathematics </label>
-                <label for="three"><input type="checkbox" name="major" ng-model="project.areas.arch" id="three"/>Architectural Engineering</label>
-                <label for="four"><input type="checkbox" name="major" ng-model="project.areas.chem" id="four"/>Chemical Engineering</label>
-                <label for="five"><input type="checkbox" name="major" ng-model="project.areas.chbi" id="five"/>Chemical and Biological Engineering </label>
-                <label for="six"><input type="checkbox" name="major" ng-model="project.areas.cven" id="six"/>Civil Engineering</label>
-                <label for="seven"><input type="checkbox" name="major" ng-model="project.areas.csci" id="seven"/>Computer Science</label>
-                <label for="eight"><input type="checkbox" name="major" ng-model="project.areas.ecen" id="eight"/>Electrical Engineering </label>
-                <label for="nine"><input type="checkbox" name="major" ng-model="project.areas.ecce" id="nine"/>Electrical and Computer Engineering</label>
-                <label for="ten"><input type="checkbox" name="major" ng-model="project.areas.phy" id="ten"/>Engineering Physics </label>
-                <label for="eleven"><input type="checkbox" name="major" ng-model="project.areas.even" id="eleven"/>Environmental Engineering</label>
-                <label for="twelve"><input type="checkbox" name="major" ng-model="project.areas.eplus" id="twelve"/>Engineering Plus</label>
-                <label for="thirteen"><input type="checkbox" name="major" ng-model="project.areas.mech" id="thirteen"/>Mechanical Engineering </label>
-                <label for="fourteen"><input type="checkbox" name="major" ng-model="project.areas.tech" id="fourteen"/>Technology Arts and Media</label>
+                <label for="one"><input type="checkbox" name="major" ng-model="project.areas.asen" id="one" />Aerospace Engineering</label><br/>
+                <label for="two"><input type="checkbox"  name="major" ng-model="project.areas.amath" id="two"/>Applied Mathematics </label><br/>
+                <label for="three"><input type="checkbox" name="major" ng-model="project.areas.arch" id="three"/>Architectural Engineering</label><br/>
+                <label for="four"><input type="checkbox" name="major" ng-model="project.areas.chem" id="four"/>Chemical Engineering</label><br/>
+                <label for="five"><input type="checkbox" name="major" ng-model="project.areas.chbi" id="five"/>Chemical and Biological Engineering </label><br/>
+                <label for="six"><input type="checkbox" name="major" ng-model="project.areas.cven" id="six"/>Civil Engineering</label><br/>
+                <label for="seven"><input type="checkbox" name="major" ng-model="project.areas.csci" id="seven"/>Computer Science</label><br/>
+                <label for="eight"><input type="checkbox" name="major" ng-model="project.areas.ecen" id="eight"/>Electrical Engineering </label><br/>
+                <label for="nine"><input type="checkbox" name="major" ng-model="project.areas.ecce" id="nine"/>Electrical and Computer Engineering</label><br/>
+                <label for="ten"><input type="checkbox" name="major" ng-model="project.areas.phy" id="ten"/>Engineering Physics </label><br/>
+                <label for="eleven"><input type="checkbox" name="major" ng-model="project.areas.even" id="eleven"/>Environmental Engineering</label><br/>
+                <label for="twelve"><input type="checkbox" name="major" ng-model="project.areas.eplus" id="twelve"/>Engineering Plus</label><br/>
+                <label for="thirteen"><input type="checkbox" name="major" ng-model="project.areas.mech" id="thirteen"/>Mechanical Engineering </label><br/>
+                <label for="fourteen"><input type="checkbox" name="major" ng-model="project.areas.tech" id="fourteen"/>Technology Arts and Media</label><br/>
                 <p ng-show="Faculty.areas.$error.required" style="color:red;font-size: 10px;" >Please Choose atleast one </p>
             </div>
         </div>
