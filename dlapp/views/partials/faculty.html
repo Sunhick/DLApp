@@ -107,13 +107,25 @@
         </div>
 
         <div class="form-group">
-            <label for="Name">*Special Requirements the student should meet (Eg: Specific Courses, Class standings, Work Availability):</label>
+            <label for="Name">*Special Requirements the student should meet (Eg: Specific Courses):</label>
             <input type="text"  name="specialReq" ng-model="project.specialReq" class="form-control" id="name" required>
             <p ng-show="Faculty.specialReq.$error.required" style="color:red;font-size: 10px;" >Please enter if any, else enter N/A </p>
         </div>
 
         <div class="form-group">
-            <label for="desc">Brief note on the Apprentiship:</label>
+            <label for="Name">*GPA Requiements:</label>
+            <input type="text"  name="gpa" ng-model="project.gpa" class="form-control" id="name" required>
+            <p ng-show="Faculty.gpa.$error.required" style="color:red;font-size: 10px;" >Please enter if any, else enter N/A </p>
+        </div>
+
+        <div class="form-group">
+            <label for="Name">*Hours contribution required:</label>
+            <input type="text"  name="hours" ng-model="project.hours" class="form-control" id="name" required>
+            <p ng-show="Faculty.hours.$error.required" style="color:red;font-size: 10px;" >Please enter if any, else enter N/A </p>
+        </div>
+
+        <div class="form-group">
+            <label for="desc">Brief note on the Apprenticeship:</label>
             <textarea class="form-control" id="desc" name="desc" rows="2" ng-model="project.desc" maxlength="1200" required />
             <p ng-show="Faculty.desc.$error.required" style="color:red;font-size: 10px;" >Please description about the project</p>
         </div>
