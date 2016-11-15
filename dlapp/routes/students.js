@@ -18,4 +18,17 @@ module.exports = function(router) {
     			res.json(result);
    		 });
 	});
+
+	// query mongo db for the list of students
+	router.get("/students/list", function(req, res) {
+        var students = [];
+        Student.find({}, function(err, records) {
+            records.forEach(function(record) {
+                var student = {};
+                student = record;
+                students.push(student);
+            });
+            res.send(students);
+        });
+    });
 }
