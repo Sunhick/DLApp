@@ -8,10 +8,10 @@
 var Project = require("../models/projects")
 
 module.exports = function(router) {
-    // add project 
+    // add project
     router.post("/projects/add", function(req, res, next) {
         console.log("got request!" + req.body);
-        
+
         var prj = new Project(req.body);
 
         prj.save(function(err) {
@@ -24,9 +24,23 @@ module.exports = function(router) {
         res.send(req.body);
     });
 
+    router.post("/projects/update", function(req, res, next) {
+        console.log("got request!" + req.body);
+        var data = req.body;
+        Project.findOneAndUpdate({title: req.title}, {$set:{number: req.updatedCount}},function(err) {
+            if(err) {
+                console.log(err);
+            } else {
+                console.log("Updated Record");
+            }
+        });
+
+        res.send(req.body);
+    });
+
     router.get("/projects/list", function(req, res, next) {
         var projects = [];
-        
+
         // query mongo db for the list of registered projects
         Project.find({}, function(err, records) {
             records.forEach(function(record) {
