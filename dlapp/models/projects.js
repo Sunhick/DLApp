@@ -37,11 +37,11 @@ var projectSchema = new Schema({
 
     // apprenticeship information
     title: String,
-    number: String,
+    number: Number,
     weblink: String,
     specialReq: String,
     gpa: String,
-    hours: String,    
+    hours: String,
     desc: String,
     areas: [String],
     supervisionAmt: String,
