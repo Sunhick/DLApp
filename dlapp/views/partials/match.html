@@ -43,33 +43,26 @@
             <label>Student Name: </label>
             {{mCtrl.selectedStudent.studentName}} <br/><br/>
             
-            <label>Selected Project: </label>
-            <span>{{mCtrl.tempAssigned}}</span> <br/><br/>
+            <label>Project Assigned: </label>
+            <span>{{mCtrl.tempAssigned.title}}</span> <br/><br/>
             
             <!-- <div class="input-w"> -->
-            <label>Project Preferences:</label>
-            <div class="btn-group">
-              <label class="btn btn-primary" ng-model="mCtrl.tempAssigned" uib-btn-radio="'Project-1'" uncheckable>Project-1</label>
-              <label class="btn btn-primary" ng-model="mCtrl.tempAssigned" uib-btn-radio="'Project-2'" uncheckable>Project-2</label>
-              <label ng-disabled="true" class="btn btn-primary" ng-model="mCtrl.tempAssigned" uib-btn-radio="'Project-3'" uib-uncheckable="uncheckable">Project-3</label>
+            <label>Student Project Preferences:</label>
+            <div class="btn-group" >
+              <label ng-repeat='preference in mCtrl.getStudentPreferences(mCtrl.selectedStudent.studentName) track by $index' class="btn btn-primary" ng-model="mCtrl.tempAssigned.title" uib-btn-radio="'{{preference}}'" uncheckable>{{preference}}</label>
             </div>
             <!-- </div> -->
 
             <br/><br/>
             <label>Select from the list:</label>
-            <select ng-model="mCtrl.tempAssigned">
-              <option>Project-1</option>
-              <option>Project-2</option>
-              <option>Project-3</option>
-              <option>Project-4</option>
-              <option>Project-5</option>
-              <option>Project-6</option>
+            <select ng-model="mCtrl.tempAssigned" ng-options="p.title for p in mCtrl.projects">
+                <option>Select project</option>
             </select>
           </p>
         </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="mCtrl.selectedStudent.assigned=mCtrl.tempAssigned">Save</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="mCtrl.selectedStudent.assigned=mCtrl.tempAssigned.title">Save</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
       </div>
     </div>

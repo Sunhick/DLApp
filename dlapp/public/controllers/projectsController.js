@@ -22,7 +22,7 @@ angular.module('dlapp').controller('projectsController', ['$scope', '$http', 'Li
     ListProjects.getProjectsList().then(function(data){
       self.projects = data;
       //console.log(self.projects);
-    })
+    });
 
 
     // Todo : move this code to the faculty controller
@@ -51,6 +51,6 @@ function ($http) {
         return response.data;
       });
     }
-  }
+  };
 
 }]);

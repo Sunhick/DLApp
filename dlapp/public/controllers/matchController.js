@@ -19,6 +19,21 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
     // dummy data, to be fetched from backend
     self.matches = [];
 
+    self.getStudentPreferences = function(studentName) {
+      var prefs = [];
+      console.log(studentName);
+      $.each(self.students, function(index) {
+        var student = self.students[index];
+        var sName = student.firstName.concat('  ' ,student.lastName);
+        if (sName == studentName) {
+          prefs = [student.firstChoice, student.secondChoice, student.thirdChoice, student.fourthChoice, student.fifthChoice];
+          console.log(prefs);
+          return prefs;
+        }
+      });
+      return prefs;
+    };
+
     // Get the list of students from database and auto-match project for each student
     self.students=[];
     self.getStudentsList = function() {
@@ -30,7 +45,7 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
 
 
                 var studentName = student.firstName.concat('  ' ,student.lastName);
-                self.matches[i]={studentName, projectAssigned};
+                self.matches[i]={'studentName':studentName, 'assigned':projectAssigned};
 
                 // Save the project and student mapping
                 self.saveAssignedProjectAndStudent(student,projectAssigned);
@@ -74,10 +89,10 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
     };
 
     // Save the updated count of students assigned to the project
-    self.saveUpdatedCount = function(project,updatedCount){
+    self.saveUpdatedCount = function(project, updatedCount){
         $http.post("/projects/update",{title:project.title, updatedCount: updatedCount}).then(function(){
           console.log("Updated");
-        })
+        });
     };
 
     // Save the project assigned to student in database
@@ -118,7 +133,7 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
 
     self.setSelection = function(student) {
         self.selectedStudent = student;
-        self.tempAssigned = self.selectedStudent.assigned;
+        self.tempAssigned = self.selectedStudent;
     };
 
 }]);

@@ -11,7 +11,7 @@ angular.module('dlapp').controller('facultyController', ['$http', '$scope', '$lo
     var self = this;
 
     self.submit = function(project) {
-        var areas = []
+        var areas = [];
         for (var key in project.areas) {
           if (project.areas.hasOwnProperty(key)) {
             areas.push(key);
@@ -21,7 +21,7 @@ angular.module('dlapp').controller('facultyController', ['$http', '$scope', '$lo
         if(project.natureWrk == "others")
           project.natureWrk = $scope.natureWrk;
         if(project.priorWrk == "others")
-          project.priorWrk = $scope.priorWrk
+          project.priorWrk = $scope.priorWrk;
         console.log(project);
         // post the data
         $http.post("/projects/add", project)
