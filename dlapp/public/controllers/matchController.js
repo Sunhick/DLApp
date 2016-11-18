@@ -31,7 +31,7 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
 
                 var studentName = student.firstName.concat('  ' ,student.lastName);
                 self.matches[i]={studentName, projectAssigned};
-                
+
                 // Save the project and student mapping
                 self.saveAssignedProjectAndStudent(student,projectAssigned);
             }
@@ -75,7 +75,9 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
 
     // Save the updated count of students assigned to the project
     self.saveUpdatedCount = function(project,updatedCount){
-        // Write code
+        $http.post("/projects/update",{title:project.title, updatedCount: updatedCount}).then(function(){
+          console.log("Updated");
+        })
     };
 
     // Save the project assigned to student in database
