@@ -713,7 +713,7 @@
                               <option value="CHEN">Chemical Engineering</option>
                               <option value="CBEN">Chemical and Biological Engineering</option>
                               <option value="CVEN">Civil Engineering</option>
-                              <option value="CSEN">Computer Science</option>
+                              <option value="CSCI">Computer Science</option>
                               <option value="EEEN">Electrical Engineering</option>
                               <option value="ECEN">Electrical and Computer Engineering</option>
                               <option value="EPEN">Engineering Physics</option>
@@ -799,7 +799,7 @@
                       <select class="form-control col-md-3" id="firstChoice" name="firstChoice" ng-model="data.firstChoice" ng-options="title for title in title" required>
                         <option value="">Please select project</option>
                       </select>
-                      <p ng-show="Student.firstChoice.$error.required" style="color:red;font-size: 10px;" >First Preference Required! </p>
+                      <p ng-show="Student.firstChoice.$error.required" style="color:red;font-size:10px;">First Preference Required! </p>
                       <span
                     </div>
                   </div>
@@ -808,7 +808,7 @@
                         <label for="secondChoice">Second Preference</label>
                     </div>
                     <div class="panel-body col-md-10">
-                        <select class="form-control col-md-3" id="secondChoice" name="secondChoice" ng-model="data.secondChoice" ng-options="title for title in title">
+                        <select class="form-control col-md-3" id="secondChoice" name="secondChoice" ng-model="data.secondChoice" ng-options="title for title in title" ng-disabled="!data.firstChoice">
                           <option value="">Please select project</option>
                         </select>
                     </div>
@@ -817,7 +817,7 @@
                         <label for="thirdChoice">Third Preference</label>
                     </div>
                     <div class="panel-body col-md-10">
-                        <select class="form-control col-md-3" id="thirdChoice" name="thirdChoice" ng-model="data.thirdChoice" ng-options="title for title in title">
+                        <select class="form-control col-md-3" id="thirdChoice" name="thirdChoice" ng-model="data.thirdChoice" ng-options="title for title in title" ng-disabled="!data.secondChoice">
                           <option value="" >Please select project</option>
                         </select>
                     </div>
@@ -826,7 +826,7 @@
                         <label for="fourthChoice">Fourth Preference</label>
                     </div>
                     <div class="panel-body col-md-10">
-                        <select class="form-control col-md-3" id="fourthChoice" name="fourthChoice" ng-model="data.fourthChoice" ng-options="title for title in title">
+                        <select class="form-control col-md-3" id="fourthChoice" name="fourthChoice" ng-model="data.fourthChoice" ng-options="title for title in title" ng-disabled="!data.thirdChoice">
                           <option value="" >Please select project</option>
                         </select>
                     </div>
@@ -835,7 +835,7 @@
                         <label for="fifthChoice">Fifth Preference</label>
                     </div>
                     <div class="panel-body col-md-10">
-                        <select class="form-control col-md-3" id="fifthChoice" name="fifthChoice" ng-model="data.fifthChoice" ng-options="title for title in title">
+                        <select class="form-control col-md-3" id="fifthChoice" name="fifthChoice" ng-model="data.fifthChoice" ng-options="title for title in title" ng-disabled="!data.fourthChoice">
                           <option value="">Please select project</option>
                         </select>
                     </div>
@@ -957,7 +957,7 @@
             </div>
             <div class="col-md-3">
               <br/>
-              <button ng-disabled="!Student.firstName.$valid || !Student.lastName.$valid || !Student.gender.$valid || !Student.origin.$valid || !Student.addressLine1.$valid || !Student.city.$valid || !Student.zip.$valid || !Student.phoneNumber.$valid || !Student.boulderEmail.$valid || !Student.sum_addressLine1.$valid  || !Student.sum_city.$valid || !Student.sum_zip.$valid || !Student.sum_country.$valid || !Student.sum_phoneNumber.$valid || !Student.sum_email.$valid || !Student.primary_major.$valid || !Student.gpa.$valid || !Student.school_level.$valid || !Student.listGradMonth.$valid || !Student.listGradYear.$valid || !Student.sid.$valid || isRaceInvalid()" type="submit" class="btn btn-primary" ng-click="addStudent(data)">Submit Application</button>
+              <button ng-disabled="!Student.firstChoice.$valid || !Student.firstName.$valid || !Student.lastName.$valid || !Student.gender.$valid || !Student.origin.$valid || !Student.addressLine1.$valid || !Student.city.$valid || !Student.zip.$valid || !Student.phoneNumber.$valid || !Student.boulderEmail.$valid || !Student.sum_addressLine1.$valid  || !Student.sum_city.$valid || !Student.sum_zip.$valid || !Student.sum_country.$valid || !Student.sum_phoneNumber.$valid || !Student.sum_email.$valid || !Student.primary_major.$valid || !Student.gpa.$valid || !Student.school_level.$valid || !Student.listGradMonth.$valid || !Student.listGradYear.$valid || !Student.sid.$valid || isRaceInvalid()" type="submit" class="btn btn-primary" ng-click="addStudent(data)">Submit Application</button>
             </div>
           </form>
         </div>

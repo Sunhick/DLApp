@@ -18,7 +18,7 @@ angular.module('dlapp').controller('studentController',['$scope','$resource', 'L
         console.log($scope.title[i]);
       }
       console.log($scope.title);
-    })
+    });
 
     $scope.options = [{
 	    name: 'American Indian or Alaskan Native',
@@ -54,6 +54,15 @@ angular.module('dlapp').controller('studentController',['$scope','$resource', 'L
     	 }
     	 return raceInvalid;
 	};
+
+  // $scope.exclude = function (title1, choice) {
+  //   console.log("processing second choice exclude...");
+  //   console.log(title1);
+  //   var selectedChoiceIndex = $scope.title.indexOf(choice);
+  //   title1 = title1.splice(selectedChoiceIndex,1);
+  //   console.log(title1);
+  //   return title1;
+  // }
 
 	$scope.populateSummerAddress = function(data) {
     	if(data.sameAddress){
