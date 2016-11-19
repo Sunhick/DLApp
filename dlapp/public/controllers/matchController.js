@@ -26,20 +26,7 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
         var student = self.students[index];
         var sName = student.firstName.concat('  ' ,student.lastName);
         if (sName == studentName) {
-          prefs = [student.firstChoice];
-          if (typeof student.secondChoice !== 'undefined') {
-              prefs = prefs.concat(student.secondChoice);
-          }
-          if (typeof student.thirdChoice !== 'undefined') {
-              prefs = prefs.concat(student.thirdChoice);
-          }
-          if (typeof student.fourthChoice !== 'undefined') {
-              prefs = prefs.concat(student.fourthChoice);
-          }
-          if (typeof student.fifthChoice !== 'undefined') {
-              prefs = prefs.concat(student.fifthChoice);
-          }
-
+          prefs = [student.firstChoice, student.secondChoice, student.thirdChoice, student.fourthChoice, student.fifthChoice];
           console.log(prefs);
           return prefs;
         }
@@ -86,7 +73,7 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
     self.getCountOfStudentsAssignedForProject = function(project){
       for (var i=0; i < self.projects.length; i++){
         if (self.projects[i].title == project){
-            return self.projects[i].CountOfStudentsAssigned;
+            return self.projects[i].updatedCount;
         }
       }
     };
@@ -103,7 +90,7 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
 
     // Save the updated count of students assigned to the project
     self.saveUpdatedCount = function(project, updatedCount){
-        $http.post("/projects/update",{title:project.title, updatedCount: updatedCount}).then(function(){
+        $http.post("/projects/update",{title:project, updatedCount: updatedCount}).then(function(){
           console.log("Updated");
         });
     };
@@ -119,7 +106,7 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
 
          for(var i = 0; i < projectPreferences.length; i++){
 
-            if (typeof projectPreferences[i] !== 'undefined'){
+            if (typeof projectPreferences[i] != 'undefined'){
               var project = projectPreferences[i];
               // If student is eligible, assign the project
               console.log("checking eligibility for", project);
