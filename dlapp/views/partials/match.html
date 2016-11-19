@@ -49,7 +49,9 @@
             <!-- <div class="input-w"> -->
             <label>Student Project Preferences:</label>
             <div class="btn-group" >
-              <label ng-repeat='preference in mCtrl.getStudentPreferences(mCtrl.selectedStudent.studentName) track by $index' class="btn btn-primary" ng-model="mCtrl.tempAssigned.title" uib-btn-radio="'{{preference}}'" uncheckable>{{preference}}</label>
+              <div ng-repeat='preference in mCtrl.getStudentPreferences(mCtrl.selectedStudent.studentName) track by $index'>
+                <label class="btn btn-primary" ng-model="mCtrl.tempAssigned.title" uib-btn-radio="'{{preference}}'" uncheckable>{{preference}}</label>
+              </div>
             </div>
             <!-- </div> -->
 

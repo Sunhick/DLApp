@@ -146,7 +146,7 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
 
     self.setSelection = function(student) {
         self.selectedStudent = student;
-        self.tempAssigned = self.selectedStudent;
+        self.tempAssigned = {"title": self.selectedStudent.assigned};
     };
 
 }]);
