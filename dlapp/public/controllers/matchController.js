@@ -26,7 +26,20 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
         var student = self.students[index];
         var sName = student.firstName.concat('  ' ,student.lastName);
         if (sName == studentName) {
-          prefs = [student.firstChoice, student.secondChoice, student.thirdChoice, student.fourthChoice, student.fifthChoice];
+          prefs = [student.firstChoice];
+          if (typeof student.secondChoice !== 'undefined') {
+              prefs = prefs.concat(student.secondChoice);
+          }
+          if (typeof student.thirdChoice !== 'undefined') {
+              prefs = prefs.concat(student.thirdChoice);
+          }
+          if (typeof student.fourthChoice !== 'undefined') {
+              prefs = prefs.concat(student.fourthChoice);
+          }
+          if (typeof student.fifthChoice !== 'undefined') {
+              prefs = prefs.concat(student.fifthChoice);
+          }
+
           console.log(prefs);
           return prefs;
         }
