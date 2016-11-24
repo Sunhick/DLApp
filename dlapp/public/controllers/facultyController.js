@@ -18,11 +18,14 @@ angular.module('dlapp').controller('facultyController', ['$http', '$scope', '$lo
           }
         }
         project.areas = areas;
+        project.updatedCount = 0;
+        
         if(project.natureWrk == "others")
           project.natureWrk = $scope.natureWrk;
         if(project.priorWrk == "others")
           project.priorWrk = $scope.priorWrk;
-        console.log(project);
+          //console.log(project);
+        
         // post the data
         $http.post("/projects/add", project)
             .then(function(response) {

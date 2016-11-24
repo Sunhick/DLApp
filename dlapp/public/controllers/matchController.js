@@ -19,33 +19,35 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
     // dummy data, to be fetched from backend
     self.matches = [];
 
-    self.getStudentPreferences = function(studentName) {
-      var prefs = [];
-      console.log(studentName);
-      $.each(self.students, function(index) {
-        var student = self.students[index];
-        var sName = student.firstName.concat('  ' ,student.lastName);
-        if (sName == studentName) {
-          prefs = [student.firstChoice];
-          if (typeof student.secondChoice !== 'undefined') {
-              prefs = prefs.concat(student.secondChoice);
-          }
-          if (typeof student.thirdChoice !== 'undefined') {
-              prefs = prefs.concat(student.thirdChoice);
-          }
-          if (typeof student.fourthChoice !== 'undefined') {
-              prefs = prefs.concat(student.fourthChoice);
-          }
-          if (typeof student.fifthChoice !== 'undefined') {
-              prefs = prefs.concat(student.fifthChoice);
-          }
+    // self.getStudentPreferences = function(studentName) {
+    //   var prefs = [];
+    //   console.log(studentName);
+    //   $.each(self.students, function(index) {
+    //     var student = self.students[index];
+    //     var sName = student.firstName.concat('  ' ,student.lastName);
+    //     if (sName == studentName) {
+    //       prefs = [student.firstChoice];
+    //       if (typeof student.secondChoice !== 'undefined') {
+    //           prefs = prefs.concat(student.secondChoice);
+    //       }
+    //       if (typeof student.thirdChoice !== 'undefined') {
+    //           prefs = prefs.concat(student.thirdChoice);
+    //       }
+    //       if (typeof student.fourthChoice !== 'undefined') {
+    //           prefs = prefs.concat(student.fourthChoice);
+    //       }
+    //       if (typeof student.fifthChoice !== 'undefined') {
+    //           prefs = prefs.concat(student.fifthChoice);
+    //       }
 
-          console.log(prefs);
-          return prefs;
-        }
-      });
-      return prefs;
-    };
+    //       console.log(prefs);
+    //       return prefs;
+    //     }
+    //   });
+    //   return prefs;
+    // };
+
+
 
     // Get the list of students from database and auto-match project for each student
     self.students=[];
@@ -54,9 +56,8 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
             self.students = response.data;
             for(var i=0; i < self.students.length; i++){
                 var student = self.students[i];
+                console.log('Student name - '+student.firstName);
                 var projectAssigned = self.getAutoMatch(student);
-
-
                 var studentName = student.firstName.concat('  ' ,student.lastName);
                 self.matches[i]={'studentName':studentName, 'assigned':projectAssigned};
 
@@ -72,7 +73,7 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
         // Check gpa, major and other requirements
         for (var i=0; i < self.projects.length; i++){
           if (self.projects[i].title == project){
-            if (student.gpa >= self.projects[i].gpa && self.projects[i].areas.indexOf(student.primaryMajor.toLowerCase()) > -1 ){
+            if (student.gpa >= self.projects[i].gpa && self.projects[i].areas.indexOf(student.primaryMajor) > -1 ){
               console.log("Student eligible");
               return true;
             }
@@ -95,7 +96,6 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
     self.getMaxStudentsRequiredForProject = function(project){
       for (var i=0; i < self.projects.length; i++){
         if (self.projects[i].title == project){
-            console.log(self.projects[i].number);
             return self.projects[i].number;
         }
       }
@@ -103,9 +103,14 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
 
     // Save the updated count of students assigned to the project
     self.saveUpdatedCount = function(project, updatedCount){
-        $http.post("/projects/update",{title:project, updatedCount: updatedCount}).then(function(){
-          console.log("Updated");
-        });
+        // $http.post("/projects/update",{title:project, updatedCount: updatedCount}).then(function(response){
+        //   //console.log("Updated Count");
+        // });
+        for (var i=0; i < self.projects.length; i++){
+        if (self.projects[i].title == project){
+            self.projects[i].updatedCount = updatedCount;
+        }
+      }
     };
 
     // Save the project assigned to student in database
@@ -114,27 +119,30 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
     };
 
     // Auto match student and project
-    self.getAutoMatch = function(student) {
+    self.getAutoMatch = function(student) { 
          var projectPreferences = [student.firstChoice, student.secondChoice, student.thirdChoice, student.fourthChoice, student.fifthChoice];
 
          for(var i = 0; i < projectPreferences.length; i++){
 
-            if (typeof projectPreferences[i] != 'undefined'){
+            if (projectPreferences[i] != undefined){
               var project = projectPreferences[i];
               // If student is eligible, assign the project
               console.log("checking eligibility for", project);
               if(self.checkEligibilityOfStudent(student, project)){
-                console.log("Eligiable");
                 // Get the count of students already assigned for the project
                 var countOfStudentsAssigned = self.getCountOfStudentsAssignedForProject(project);
-
+                if(countOfStudentsAssigned == undefined){
+                  countOfStudentsAssigned = 0;
+                }
+                //console.log('countOfStudentsAssigned - '+countOfStudentsAssigned);
+                
                 // Get the count of required students for the project
                 var maxStudentsForProject = self.getMaxStudentsRequiredForProject(project);
-
+                //console.log('maxStudentsForProject - '+maxStudentsForProject);
+                
                 if(countOfStudentsAssigned < maxStudentsForProject){
                     // Update count of students assigned
                     self.saveUpdatedCount(project,countOfStudentsAssigned+1);
-
                     return project;
                 }
              }

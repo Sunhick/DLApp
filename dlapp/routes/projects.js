@@ -10,8 +10,7 @@ var Project = require("../models/projects")
 module.exports = function(router) {
     // add project
     router.post("/projects/add", function(req, res, next) {
-        console.log("got request!" + req.body);
-
+        //console.log("got request!" + req.body);
         var prj = new Project(req.body);
 
         prj.save(function(err) {
@@ -25,9 +24,9 @@ module.exports = function(router) {
     });
 
     router.post("/projects/update", function(req, res, next) {
-        console.log("got request!" + req.body);
+        //console.log("got request in update script...!" + req.body);
         var data = req.body;
-        Project.findOneAndUpdate({title: req.title}, {$set:{number: req.updatedCount}},function(err) {
+        Project.findOneAndUpdate({title: req.body.title}, {$set:{updatedCount: req.body.updatedCount}},function(err) {
             if(err) {
                 console.log(err);
             } else {

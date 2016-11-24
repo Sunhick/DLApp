@@ -4,7 +4,7 @@
 *
 *  Copyright (c) 2016. University of Colorado, boulder
 */
-angular.module('dlapp').controller('studentController',['$scope','$resource', 'ListProjects1', function($scope,$resource, ListProjects1) {
+angular.module('dlapp').controller('studentController',['$scope','$resource', '$location','ListProjects1', function($scope,$resource,$location,ListProjects1) {
     "use strict";
     var Student = $resource('/student/add');
     var self = this;
@@ -107,6 +107,7 @@ angular.module('dlapp').controller('studentController',['$scope','$resource', 'L
         student.race = race_values;
         student.$save(function(result) {
             console.log('Student added..');
+            $location.path("/student_success");
          });
     };
 }])
