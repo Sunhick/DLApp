@@ -242,6 +242,31 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
         return assignedProject;
     }
 
+    self.isEmpty = function isEmpty(obj) {
+
+    // null and undefined are "empty"
+    if (obj == null) return true;
+
+    // Assume if it has a length property with a non-zero value
+    // that that property is correct.
+    if (obj.length > 0)    return false;
+    if (obj.length === 0)  return true;
+
+    // If it isn't an object at this point
+    // it is empty, but it can't be anything *but* empty
+    // Is it empty?  Depends on your application.
+    if (typeof obj !== "object") return true;
+
+    // Otherwise, does it have any properties of its own?
+    // Note that this doesn't handle
+    // toString and valueOf enumeration bugs in IE < 9
+    for (var key in obj) {
+        if (hasOwnProperty.call(obj, key)) return false;
+    }
+
+    return true;
+  };
+
     // Check the eligibility of student for a given project and return true/false
     self.checkEligibilityOfStudent = function(student, project){
       console.log("In checkEligibilityOfStudent....");
@@ -252,9 +277,11 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
       for (var i=0; i < project.length; i++){
         console.log("Project under consideration:", student, project[i]);
         var index = self.projects.findIndex(x=> x.title==project[i]);
-
+        console.log("Find index:", self.projects[index].gpa);
+        console.log("sGPA:", student.gpa);
         //if (student.bsMbProgram == "no")
-        if (parseFloat(student.gpa) >= parseFloat(self.projects[index].gpa) && self.projects[index].areas.indexOf(student.primaryMajor.toLowerCase()) > -1 && (student.serverAllYear == "yes" || student.serverAllYear == "not_sure" || typeof student.serverAllYear == 'undefined')){
+
+        if (parseFloat(student.gpa) >= parseFloat(self.projects[index].gpa) && self.projects[index].areas.indexOf(student.primaryMajor) > -1 && (student.serverAllYear == "yes" || student.serverAllYear == "not_sure" || typeof student.serverAllYear == 'undefined')){
           console.log("Student meets gpa & major criteria...");
           if (i==0 || i ==1){
             var studentName = student.firstName.concat(' ' ,student.lastName);
@@ -275,12 +302,17 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
 
         console.log(projectScore);
 
+
       if(flag){
-        while (projectScore.length != 0) {
+
+        // while (projectScore !== 'undefined') {
+        while (!self.isEmpty(projectScore)) {
+
           var assignedProject = self.findMax(projectScore);
           console.log("Max Valued Project:", assignedProject);
 
           var project = self.projects[self.projects.findIndex(x=> x.title==assignedProject)];
+          console.log(project);
           var countOfStudentsAssigned = self.getCountOfStudentsAssignedForProject(project);
           if(countOfStudentsAssigned == undefined){
             countOfStudentsAssigned = 0;
@@ -294,6 +326,7 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
             return assignedProject;
           }
           delete projectScore[assignedProject];
+          console.log("after", projectScore);
 
         }
         return false;
