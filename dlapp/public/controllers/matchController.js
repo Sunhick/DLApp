@@ -33,6 +33,7 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
     // Reset count of students assigned to each project, everytime the page is loaded
     self.resetCountsOfAssignedStudents = function(){
       console.log('***** Reset Counts *****');
+      self.studentCount={};
         for (var i=0; i < self.projects.length; i++){
           self.projects[i].updatedCount = 0;
       }
@@ -140,22 +141,23 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
                   var mAssignedProject = self.studentProjectMap[studentName];
                   // console.log('Manually Assigned Project : '+mAssignedProject);
 
-                   var countOfStudentsAssigned = self.getCountOfStudentsAssignedForProject(mAssignedProject);
+                  var index = self.projects.findIndex(x=> x.title==mAssignedProject);
+
+                   var countOfStudentsAssigned = self.getCountOfStudentsAssignedForProject(self.projects[index]);
                     if(countOfStudentsAssigned == undefined){
                       countOfStudentsAssigned = 0;
                     }
 
-                    var maxStudentsForProject = self.getMaxStudentsRequiredForProject(mAssignedProject);
+                    var maxStudentsForProject = self.getMaxStudentsRequiredForProject(self.projects[index]);
 
                     // If the assigned students count is less than reuired students count
                     if(countOfStudentsAssigned < maxStudentsForProject){
 
                         // Update count of student-project assignment (manual override)
                         self.matches[j++]={'studentName':studentName, 'assigned': mAssignedProject};
-                        self.saveUpdatedCount(mAssignedProject,countOfStudentsAssigned+1);
+                        self.saveUpdatedCount(self.projects[index],countOfStudentsAssigned+1);
                     } else {
                       //console.log('Required limit reached...!!!');
-
                       var projectAssigned = self.getAutoMatch(student);
                       self.matches[j++]={'studentName':studentName, 'assigned':projectAssigned};
                     }
