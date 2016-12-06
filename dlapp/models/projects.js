@@ -38,6 +38,7 @@ var projectSchema = new Schema({
     // apprenticeship information
     title: String,
     number: Number,
+    Specific: String,
     updatedCount: Number,
     weblink: String,
     specialReq: String,
