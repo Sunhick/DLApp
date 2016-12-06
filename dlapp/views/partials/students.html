@@ -685,7 +685,7 @@
                               <option value="CHEN">Chemical Engineering</option>
                               <option value="CBEN">Chemical and Biological Engineering</option>
                               <option value="CVEN">Civil Engineering</option>
-                              <option value="CSEN">Computer Science</option>
+                              <option value="CSCI">Computer Science</option>
                               <option value="EEEN">Electrical Engineering</option>
                               <option value="ECEN">Electrical and Computer Engineering</option>
                               <option value="EPEN">Engineering Physics</option>
@@ -698,7 +698,8 @@
                     </div>
                     <div class="panel-body col-md-3">
                           <label for="gpa">*GPA:</label>
-                          <input type="text" class="form-control" name="gpa" id="gpa" ng-model="data.gpa" ng-maxlength="4" required>
+                          <input type="text" class="form-control" name="gpa" id="gpa" ng-model="data.gpa" ng-maxlength="4" placeholder="x.xx" required>
+                          <p ng-show="data.gpa<'3.0'" style="color:red;font-size: 10px;">Please note your GPA is less than the Program pre-requiste of 3.0</p>
                           <p ng-show="Student.gpa.$error.required" style="color:red;font-size: 10px;" >GPA Required! </p>
                           <p ng-show="Student.gpa.$error.maxlength" style="color:red;font-size: 10px;" >Proper Format of GPA Required!</p>
                     </div>
@@ -774,17 +775,41 @@
 
             <div class="panel-heading">Apprenticeship Information</div>
               <div class="panel-body">
+                <div class="col-md-12">
+                    <label for="bsMbProgram" id="bsMbProgram" name="bsMbProgram"required>If you are enrolled in BS/MS program at the University, are you in the MS year of the program?</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <label class="radio-inline"><input type="radio" id="bsMbProgram" name="bsMbProgram" ng-model="data.bsMbProgram" value="yes">Yes</label>
+                      <label class="radio-inline"><input type="radio" id="bsMbProgram" name="bsMbProgram" ng-model="data.bsMbProgram" value="no">No</label>
+                      <p ng-show="Student.bsMbProgram.$error.required" style="color:red;font-size: 10px;" >Please note the DL Apprenticeship is only for BS students!</p>
+                </div>
+
+
                     <div class="col-md-12">
-                        <label for="applied_before">Have you applied for Discovery Learning Apprenticeship before?</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="applied_before" required>Have you applied for Discovery Learning Apprenticeship before?</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           <label class="radio-inline"><input type="radio" name="applied_before" ng-model="data.appliedBefore" value="yes">Yes</label>
                           <label class="radio-inline"><input type="radio" name="applied_before" ng-model="data.appliedBefore" value="not_sure">Not sure</label>
                           <label class="radio-inline"><input type="radio" name="applied_before" ng-model="data.appliedBefore" value="no">No</label>
+                          <p ng-show="Student.applied_before.$error.required" style="color:red;font-size: 10px;" >Required!</p>
+                    </div>
+
+                    <div class="col-md-12" ng-show="data.appliedBefore=='yes'">
+                      <label for="applied_before_project_assigned">If yes, were you assigned a project earlier?</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <label class="radio-inline"><input type="radio" name="applied_before_project_assigned" ng-model="data.appliedBeforeProjectAssigned" value="yes">Yes</label>
+                      <label class="radio-inline"><input type="radio" name="applied_before_project_assigned" ng-model="data.appliedBeforeProjectAssigned" value="no">No</label>
+                    </div>
+
+                    <div class="panel-body col-md-12">
+                      <label for="serverAllYear" required>Will you be able to serve all year round?</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label class="radio-inline"><input type="radio" name="serverAllYear" ng-model="data.serverAllYear" value="yes">Yes</label>
+                        <label class="radio-inline"><input type="radio" name="serverAllYear" ng-model="data.serverAllYear" value="not_sure">Not sure</label>
+                        <label class="radio-inline"><input type="radio" name="serverAllYear" ng-model="data.serverAllYear" value="no">No</label>
                     </div>
 
                     <div class="panel-body col-md-6">
                       <label for="otherFallEmployment">Other fall employment planned:</label>
                       <input type="text" class="form-control" id="otherFallEmployment" ng-model="data.otherFallEmployment">
                     </div>
+
+                </div>
 
                     <div class="panel-body col-md-12">
                       <label for="note"> Please make sure you selected a major before proceeding! Indicate up to five research projects in order of interest. Please note that some projects have special requirements that you must meet. To see requirements and longer descriptions of the project, look at the projects available for your major here. </label>
@@ -800,7 +825,6 @@
                         <option value="">Please select project</option>
                       </select>
                       <p ng-show="Student.firstChoice.$error.required" style="color:red;font-size:10px;">First Preference Required! </p>
-                      <span
                     </div>
                   </div>
 
@@ -904,13 +928,14 @@
                   <div ng-hide="showAwarenessTraining2()"> </div>
                   </div>
 
+                  <div class="row">
                     <div class="panel-body col-md-4">
                       <label for="ssnInfo">Last four digits of your Social Security Number: (this will only be used to acess your background check information)</label>
                     </div>
                     <div class="panel-body col-md-8">
                       <input type="password" class="form-control-inline" id="ssnInfo" maxlength="4" ng-model="data.ssnInfo">
                     </div>
-
+                  </div>
             </div>
 
             <div class="panel-heading">Skills, Resume, and Cover Letter</div>
