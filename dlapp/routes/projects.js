@@ -6,7 +6,8 @@
 */
 
 var Project = require("../models/projects")
-
+var excel = require("node-excel-export");
+var fs = require("fs")
 module.exports = function(router) {
     // add project
     router.post("/projects/add", function(req, res, next) {
@@ -50,5 +51,26 @@ module.exports = function(router) {
 
             res.send(projects);
         });
+    });
+
+    router.post("/projects/report", function(req, res, next){
+      var data = req.body;
+      console.log(data.specification)
+      var report = excel.buildExport([
+        {
+          name: "Sheet1",
+          specification: data.specification,
+          data: data.dataset
+        }
+      ]);
+      fs.writeFile("../report.xlsx", report);
+      // res.download('../report.xlsx');
+      //res.send("done");
+      // return res.send(report);
+      return res.send('done');
+    });
+
+    router.get('/projects/getcsv', function(req, res, next) {
+        return res.download('../report.xlsx');
     });
 }
