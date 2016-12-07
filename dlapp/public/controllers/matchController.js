@@ -4,7 +4,7 @@
 *
 *  Copyright (c) 2016. University of Colorado, boulder
 */
-angular.module('dlapp').controller('matchController', ['$http', function($http) {
+angular.module('dlapp').controller('matchController', ['$http', '$window', function($http, $window) {
     "use strict";
     var self = this;
 
@@ -407,5 +407,38 @@ angular.module('dlapp').controller('matchController', ['$http', function($http) 
         // Re-run auto-match script
         self.getStudentsList();
     };
+    //Export to Excel sheet
+    self.generateReport = function(){
+      var styles = {
+        headerDark: {
+          font: {
+            bold: true
+          }
+        }
+      };
+      var specification = {studentName:{displayName: "Student Names", headerStyle: styles.headerDark}};
+      self.projects.forEach(function(project){
+        specification[project.title.split(' ').join('_').toLowerCase()] = {displayName: project.title, headerStyle: styles.headerDark};
+      });
+      //console.log(specification)
+      var dataSet = [];
+      self.matches.forEach(function(match){
+        var tempData = {};
+        tempData['studentName'] = match.studentName;
+        tempData[match.assigned.split(' ').join('_').toLowerCase()] = 'X';
+        dataSet.push(tempData);
+      })
+      //console.log(dataSet);
+      $http.post('/projects/report',{specification: specification, dataset: dataSet, responseType: 'arraybuffer'}).then(function(res){
+        console.log("report generated");
+        $window.open('/projects/getcsv');
+        // var blob = new Blob([res.data], {type: res.headers()['content-type']})
+        // var link = document.createElement('a');
+        // link.href = URL.createObjectURL(blob);
+        // link.download = "report.xlsx"
+        // link.click();
+      })
 
+      //window.location.href = "/projects/report?specification="+JSON.stringify(specification)+"&dataset="+JSON.stringify(dataSet);
+    }
 }]);
