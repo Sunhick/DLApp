@@ -9,6 +9,8 @@
   <div class="container">
     <div class="row">
         <div class="col-md-12">
+          <button class="btn btn-primary" ng-click = "mCtrl.generateReport()">Generate Excel</button>
+          <br>
           <table id = "example" datatable="ng" class="table table-bordered table-hover specialCollapse">
             <thead>
               <tr>
@@ -33,19 +35,19 @@
   <div class="modal fade" id="moreDetails" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header"> 
+        <div class="modal-header">
           <span id="myModalLabel">
             <font size="+1"><b>Change project assignment</b></font>
-          </span> 
+          </span>
         </div>
         <div class="modal-body">
           <p>
             <label>Student Name: </label>
             {{mCtrl.selectedStudent.studentName}} <br/><br/>
-            
+
             <label>Project Assigned: </label>
             <span>{{mCtrl.tempAssigned.title}}</span> <br/><br/>
-            
+
             <!-- <div class="input-w"> -->
             <label>Student Project Preferences:</label>
             <div class="btn-group" >
