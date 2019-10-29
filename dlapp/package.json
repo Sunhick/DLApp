@@ -17,7 +17,7 @@
     "express": "^4.13.4",
     "grunt": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
-    "mongoose": "^4.6.3",
+    "mongoose": "^5.7.7",
     "mongoose-file": "0.0.2",
     "morgan": "~1.7.0",
     "node-excel-export": "^1.2.0",
